@@ -1,0 +1,5 @@
+0000000000000000000000000000000000000000 b2adfddc114d91337b58a7497e5e73a5727003ba René Kilczan <rene.kilczan@rewe-digital.com> 1546372674 +0100	branch: Created from HEAD
+b2adfddc114d91337b58a7497e5e73a5727003ba 3cdf23027080dca6e645bcb7c0f1a198a6a1ab18 René Kilczan <rene.kilczan@rewe-digital.com> 1546374644 +0100	commit: Add Konversation usage example
+3cdf23027080dca6e645bcb7c0f1a198a6a1ab18 85905d2184294727e4c14120afe73e3de6531631 René Kilczan <rene.kilczan@rewe-digital.com> 1546374705 +0100	commit (amend): Add Konversation usage example
+85905d2184294727e4c14120afe73e3de6531631 de781df15bb4126f45c2a896865ca8f9aa4db868 René Kilczan <rene.kilczan@rewe-digital.com> 1546413486 +0100	merge master: Merge made by the 'recursive' strategy.
+de781df15bb4126f45c2a896865ca8f9aa4db868 f87cf059de4672bec30067a6d98dedee99d5adcb René Kilczan <rene.kilczan@rewe-digital.com> 1546415130 +0100	commit: Add reprompts support for Konversation

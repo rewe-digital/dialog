@@ -1,0 +1,22 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "origin"]
+	url = ssh://git@stash.rewe-digital.com:7999/xxx/dialog.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[user]
+	name = René Kilczan
+	email = rene.kilczan@rewe-digital.com
+[branch "konversation"]
+	remote = origin
+	merge = refs/heads/konversation
+[remote "staging"]
+	url = ssh://git@stash.rewe-digital.com:7999/op/dialog.git
+	fetch = +refs/heads/*:refs/remotes/staging/*

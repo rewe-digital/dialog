@@ -1,0 +1,85 @@
+0000000000000000000000000000000000000000 1a126f635221e083b794905728dfe34c147ac32a René Kilczan <rene.kilczan@CW.REWE-DIGITAL.COM> 1543329691 +0100	clone: from ssh://git@stash.rewe-digital.com:7999/xxx/dialog.git
+1a126f635221e083b794905728dfe34c147ac32a 713c74b4b4cbf772a6cf5a514456dac02b8448f8 René Kilczan <rene.kilczan@rewe-digital.com> 1543567041 +0100	commit: Add order status view models
+713c74b4b4cbf772a6cf5a514456dac02b8448f8 713c74b4b4cbf772a6cf5a514456dac02b8448f8 René Kilczan <rene.kilczan@rewe-digital.com> 1543576212 +0100	reset: moving to HEAD
+713c74b4b4cbf772a6cf5a514456dac02b8448f8 9e932e3602fe1dc3edfdb8eb0e082f83a3a0433d René Kilczan <rene.kilczan@rewe-digital.com> 1543576213 +0100	merge origin/master: Fast-forward
+9e932e3602fe1dc3edfdb8eb0e082f83a3a0433d 4906fed173ab49a847da4d2e3ecf399e02f046b9 René Kilczan <rene.kilczan@rewe-digital.com> 1543576273 +0100	commit: Add and correct the RichResponse models
+4906fed173ab49a847da4d2e3ecf399e02f046b9 707427ff05a6f6e420f877ee1e436a994e202979 René Kilczan <rene.kilczan@rewe-digital.com> 1543583677 +0100	merge origin/master: Fast-forward
+707427ff05a6f6e420f877ee1e436a994e202979 93b6ccfbef83b9dc3ce81121f5f8f872ee313ab9 René Kilczan <rene.kilczan@rewe-digital.com> 1543587274 +0100	merge origin/master: Fast-forward
+93b6ccfbef83b9dc3ce81121f5f8f872ee313ab9 5b593f1935cec9045675f5676f0d0ba2ac523d2c René Kilczan <rene.kilczan@rewe-digital.com> 1543589205 +0100	commit: Use mutable lists and add creator functions
+5b593f1935cec9045675f5676f0d0ba2ac523d2c 74574f06fedfa390175d6dc43f26d9e1682eead8 René Kilczan <rene.kilczan@rewe-digital.com> 1543589920 +0100	commit: Create more creation functions
+74574f06fedfa390175d6dc43f26d9e1682eead8 5941f855996434e38c871a1ec8548cb2d7693fed René Kilczan <rene.kilczan@rewe-digital.com> 1543823558 +0100	merge origin/master: Fast-forward
+5941f855996434e38c871a1ec8548cb2d7693fed 2fdd333252df89b934410a59c3451699e82aa855 René Kilczan <rene.kilczan@rewe-digital.com> 1543825706 +0100	commit: Create add missing structured response
+2fdd333252df89b934410a59c3451699e82aa855 f779ebd4886588b2b5cca9154ad7f9caf5dbbfdc René Kilczan <rene.kilczan@rewe-digital.com> 1543848294 +0100	commit: Create add missing structured response
+f779ebd4886588b2b5cca9154ad7f9caf5dbbfdc f779ebd4886588b2b5cca9154ad7f9caf5dbbfdc René Kilczan <rene.kilczan@rewe-digital.com> 1544433554 +0100	reset: moving to HEAD
+f779ebd4886588b2b5cca9154ad7f9caf5dbbfdc 2ef61907fd582f9f9acf2a000d658740c861daa9 René Kilczan <rene.kilczan@rewe-digital.com> 1544433554 +0100	merge origin/master: Fast-forward
+2ef61907fd582f9f9acf2a000d658740c861daa9 ef670cf89cb357a78a96acb363dcdab13d73c2d1 René Kilczan <rene.kilczan@rewe-digital.com> 1544704756 +0100	commit: Add for all lists a default value and make them mutable
+ef670cf89cb357a78a96acb363dcdab13d73c2d1 8ad333aa55ce7acf7453632f7974e0e2f3c16fd6 René Kilczan <rene.kilczan@rewe-digital.com> 1544772614 +0100	commit: Fix minor bug
+8ad333aa55ce7acf7453632f7974e0e2f3c16fd6 8ad333aa55ce7acf7453632f7974e0e2f3c16fd6 René Kilczan <rene.kilczan@rewe-digital.com> 1545039830 +0100	reset: moving to HEAD
+8ad333aa55ce7acf7453632f7974e0e2f3c16fd6 56abced54e752721ca66630794e7810131cf4b9f René Kilczan <rene.kilczan@rewe-digital.com> 1545039830 +0100	merge origin/master: Fast-forward
+56abced54e752721ca66630794e7810131cf4b9f 7aff65cf578a4a9027713809f06a902436cbf8f6 René Kilczan <rene.kilczan@rewe-digital.com> 1545057115 +0100	commit: Add some more options to trigger an output
+7aff65cf578a4a9027713809f06a902436cbf8f6 7aff65cf578a4a9027713809f06a902436cbf8f6 René Kilczan <rene.kilczan@rewe-digital.com> 1545126769 +0100	reset: moving to HEAD
+7aff65cf578a4a9027713809f06a902436cbf8f6 5f8ca406f531d2ec3b7d75a566dd465d1b1d7a7e René Kilczan <rene.kilczan@rewe-digital.com> 1545126770 +0100	merge origin/master: Fast-forward
+5f8ca406f531d2ec3b7d75a566dd465d1b1d7a7e 94ef7fbfcc185fb09e061bb878aabf31c39415be René Kilczan <rene.kilczan@rewe-digital.com> 1545126901 +0100	commit: Add shortcuts for the api usage
+94ef7fbfcc185fb09e061bb878aabf31c39415be 94ef7fbfcc185fb09e061bb878aabf31c39415be René Kilczan <rene.kilczan@rewe-digital.com> 1545134283 +0100	reset: moving to HEAD
+94ef7fbfcc185fb09e061bb878aabf31c39415be d9a4df00705a4b9fe35fbe6a1f4f3646938a93eb René Kilczan <rene.kilczan@rewe-digital.com> 1545134284 +0100	merge origin/master: Fast-forward
+d9a4df00705a4b9fe35fbe6a1f4f3646938a93eb e3bd72528e22d3d862f14b202cf8b4a2e2140e66 René Kilczan <rene.kilczan@rewe-digital.com> 1545134549 +0100	commit: Add shortcuts for the api usage
+e3bd72528e22d3d862f14b202cf8b4a2e2140e66 8931d9c48b97741eb6316abbc64d1e7684daf260 René Kilczan <rene.kilczan@rewe-digital.com> 1545137709 +0100	commit: Add suggestions
+8931d9c48b97741eb6316abbc64d1e7684daf260 3fa0c26f8d71469980377f9f365f2ca8ecbefb57 René Kilczan <rene.kilczan@rewe-digital.com> 1545138576 +0100	commit: Use concrete implementation
+3fa0c26f8d71469980377f9f365f2ca8ecbefb57 7eef432d1aaea67abaf0087c461cc2324d09a42e René Kilczan <rene.kilczan@rewe-digital.com> 1545141405 +0100	commit: Correct return type
+7eef432d1aaea67abaf0087c461cc2324d09a42e bd66092379db23b6fffd7dda7654900a3dc010ce René Kilczan <rene.kilczan@rewe-digital.com> 1545198405 +0100	merge origin/master: Fast-forward
+bd66092379db23b6fffd7dda7654900a3dc010ce 289fe8bda6c6b603619a2e8bb63819de011c9d62 René Kilczan <rene.kilczan@rewe-digital.com> 1545211748 +0100	commit: Improve context handling
+289fe8bda6c6b603619a2e8bb63819de011c9d62 785b4076eb80c926e582a0ee2db6edd6d22a1b97 René Kilczan <rene.kilczan@rewe-digital.com> 1545215231 +0100	commit: Expose user id, session and access token
+785b4076eb80c926e582a0ee2db6edd6d22a1b97 86dacc211da724a3b6407f70a0621df239bc3566 René Kilczan <rene.kilczan@rewe-digital.com> 1545215634 +0100	commit: Add default implementation to avoid boilerplate code
+86dacc211da724a3b6407f70a0621df239bc3566 9297b5deacad2c74557726e3955e603cb073442d René Kilczan <rene.kilczan@rewe-digital.com> 1545215731 +0100	commit: Renaming of the response builder
+9297b5deacad2c74557726e3955e603cb073442d 04c5decb715ca042a56116e625b92668102970d9 René Kilczan <rene.kilczan@rewe-digital.com> 1545217056 +0100	merge origin/master: Fast-forward
+04c5decb715ca042a56116e625b92668102970d9 c4b9933e0a64d6802d5eda28e44fea256a6b01ed René Kilczan <rene.kilczan@rewe-digital.com> 1545218118 +0100	commit: Make the return value optional
+c4b9933e0a64d6802d5eda28e44fea256a6b01ed fe042303adecd3311c2b64cb5acc2a91fe735f71 René Kilczan <rene.kilczan@rewe-digital.com> 1545281857 +0100	merge origin/master: Fast-forward
+fe042303adecd3311c2b64cb5acc2a91fe735f71 c1271ea473ba0e917b02753803932cfc1cba8d59 René Kilczan <rene.kilczan@rewe-digital.com> 1545297907 +0100	commit: Improvements
+c1271ea473ba0e917b02753803932cfc1cba8d59 402846a491d09a28cd411609276c8def2d3c359f René Kilczan <rene.kilczan@rewe-digital.com> 1545299229 +0100	merge origin/master: Fast-forward
+402846a491d09a28cd411609276c8def2d3c359f 402846a491d09a28cd411609276c8def2d3c359f René Kilczan <rene.kilczan@rewe-digital.com> 1545310958 +0100	reset: moving to HEAD
+402846a491d09a28cd411609276c8def2d3c359f 1357b554f70cf9e5a0a0cadd67518880f92be4a0 René Kilczan <rene.kilczan@rewe-digital.com> 1545310958 +0100	merge origin/master: Fast-forward
+1357b554f70cf9e5a0a0cadd67518880f92be4a0 ec54d7fb6a310065e454d1b06d384a9e2cae4e94 René Kilczan <rene.kilczan@rewe-digital.com> 1545380695 +0100	commit: Add extensions functions for a simpler ssml integration
+ec54d7fb6a310065e454d1b06d384a9e2cae4e94 7b852ecfa32affd229b541cd597d71ab07342c4e René Kilczan <rene.kilczan@rewe-digital.com> 1545380762 +0100	commit: Add carousel methods and change the interface for the rich responses
+7b852ecfa32affd229b541cd597d71ab07342c4e a23eab8e63fa529f76f29be71e6a6c92d04803ad René Kilczan <rene.kilczan@rewe-digital.com> 1545380769 +0100	merge origin/master: Merge made by the 'recursive' strategy.
+a23eab8e63fa529f76f29be71e6a6c92d04803ad 4a7bd820c2f470674eefec3f9acf7edf0b5d3834 René Kilczan <rene.kilczan@rewe-digital.com> 1545383290 +0100	commit: Add missing carousel classes
+4a7bd820c2f470674eefec3f9acf7edf0b5d3834 003be0cb6226e37bf30b7f3b91db189a83195db4 René Kilczan <rene.kilczan@rewe-digital.com> 1545384258 +0100	commit: Cleanup
+003be0cb6226e37bf30b7f3b91db189a83195db4 8990a82abe7901dc1991997ce1c858232dd001ec René Kilczan <rene.kilczan@rewe-digital.com> 1545385875 +0100	commit: Extract nested classes
+8990a82abe7901dc1991997ce1c858232dd001ec 4b8ee29c292004b337788ccbc38b24b747ac830f René Kilczan <rene.kilczan@rewe-digital.com> 1545386383 +0100	merge origin/master: Fast-forward
+4b8ee29c292004b337788ccbc38b24b747ac830f 9349409f5d0e7cb80c1e3f199a2189211cd6d05b René Kilczan <rene.kilczan@rewe-digital.com> 1545387108 +0100	commit: Inline the constructor of the basic card
+9349409f5d0e7cb80c1e3f199a2189211cd6d05b 0523b61b33ae13e133ef4cb77da655c14f08ecc6 René Kilczan <rene.kilczan@rewe-digital.com> 1545394952 +0100	merge origin/master: Fast-forward
+0523b61b33ae13e133ef4cb77da655c14f08ecc6 53aa9035f7361dcd77936c7108c7c0da7b6695de René Kilczan <rene.kilczan@rewe-digital.com> 1545398725 +0100	merge origin/master: Fast-forward
+53aa9035f7361dcd77936c7108c7c0da7b6695de b2adfddc114d91337b58a7497e5e73a5727003ba René Kilczan <rene.kilczan@rewe-digital.com> 1545398936 +0100	commit: Improve code formatting
+b2adfddc114d91337b58a7497e5e73a5727003ba b2adfddc114d91337b58a7497e5e73a5727003ba René Kilczan <rene.kilczan@rewe-digital.com> 1546372674 +0100	checkout: moving from master to konversation
+b2adfddc114d91337b58a7497e5e73a5727003ba 3cdf23027080dca6e645bcb7c0f1a198a6a1ab18 René Kilczan <rene.kilczan@rewe-digital.com> 1546374644 +0100	commit: Add Konversation usage example
+3cdf23027080dca6e645bcb7c0f1a198a6a1ab18 85905d2184294727e4c14120afe73e3de6531631 René Kilczan <rene.kilczan@rewe-digital.com> 1546374705 +0100	commit (amend): Add Konversation usage example
+85905d2184294727e4c14120afe73e3de6531631 b2adfddc114d91337b58a7497e5e73a5727003ba René Kilczan <rene.kilczan@rewe-digital.com> 1546411729 +0100	checkout: moving from konversation to master
+b2adfddc114d91337b58a7497e5e73a5727003ba 0d80ebf21f647cf8d4e74a5f84ab709ef4ab6af7 René Kilczan <rene.kilczan@rewe-digital.com> 1546413428 +0100	commit: Add reprompts
+0d80ebf21f647cf8d4e74a5f84ab709ef4ab6af7 85905d2184294727e4c14120afe73e3de6531631 René Kilczan <rene.kilczan@rewe-digital.com> 1546413441 +0100	checkout: moving from master to konversation
+85905d2184294727e4c14120afe73e3de6531631 de781df15bb4126f45c2a896865ca8f9aa4db868 René Kilczan <rene.kilczan@rewe-digital.com> 1546413486 +0100	merge master: Merge made by the 'recursive' strategy.
+de781df15bb4126f45c2a896865ca8f9aa4db868 f87cf059de4672bec30067a6d98dedee99d5adcb René Kilczan <rene.kilczan@rewe-digital.com> 1546415130 +0100	commit: Add reprompts support for Konversation
+f87cf059de4672bec30067a6d98dedee99d5adcb 0d80ebf21f647cf8d4e74a5f84ab709ef4ab6af7 René Kilczan <rene.kilczan@rewe-digital.com> 1546515869 +0100	checkout: moving from konversation to master
+0d80ebf21f647cf8d4e74a5f84ab709ef4ab6af7 291411239476d6bfbf7d67c6d55b75b215cf6e39 René Kilczan <rene.kilczan@rewe-digital.com> 1546515938 +0100	merge origin/master: Fast-forward
+291411239476d6bfbf7d67c6d55b75b215cf6e39 39d0c57db79e32e9bbc34901d3fe500fa4106f48 René Kilczan <rene.kilczan@rewe-digital.com> 1546609294 +0100	commit: Remove redundant response creation
+39d0c57db79e32e9bbc34901d3fe500fa4106f48 ce67c6471eb617bf2f08c1a753bf2962689ae4ae René Kilczan <rene.kilczan@rewe-digital.com> 1546609302 +0100	merge origin/master: Merge made by the 'recursive' strategy.
+ce67c6471eb617bf2f08c1a753bf2962689ae4ae b5444b08c40164a2c3783e928f2087871f8db433 René Kilczan <rene.kilczan@rewe-digital.com> 1547030376 +0100	merge origin/master: Fast-forward
+b5444b08c40164a2c3783e928f2087871f8db433 1f6c1efbfe01051a6d1ce4f9b8ae68db7136f5e6 René Kilczan <rene.kilczan@rewe-digital.com> 1547030706 +0100	commit: Add the voice only support to the ssml builder
+1f6c1efbfe01051a6d1ce4f9b8ae68db7136f5e6 005f80684c635733e7bb07238ff349394a040028 René Kilczan <rene.kilczan@rewe-digital.com> 1547450125 +0100	merge origin/master: Fast-forward
+005f80684c635733e7bb07238ff349394a040028 401f7a69d2c823ebfc843d05aee881857db1d540 René Kilczan <rene.kilczan@rewe-digital.com> 1547457023 +0100	commit: Add badges und travis config
+401f7a69d2c823ebfc843d05aee881857db1d540 401f7a69d2c823ebfc843d05aee881857db1d540 René Kilczan <rene.kilczan@rewe-digital.com> 1547563706 +0100	reset: moving to HEAD
+401f7a69d2c823ebfc843d05aee881857db1d540 e78f102125d0bfd0f6d21d7273ae0850e5a128b2 René Kilczan <rene.kilczan@rewe-digital.com> 1547563707 +0100	merge origin/master: Fast-forward
+e78f102125d0bfd0f6d21d7273ae0850e5a128b2 314d22afa6ddaff3325892e11ad70fbf7bd43c94 René Kilczan <rene.kilczan@rewe-digital.com> 1547564353 +0100	commit: Add documentation tasks and extend documention
+314d22afa6ddaff3325892e11ad70fbf7bd43c94 314d22afa6ddaff3325892e11ad70fbf7bd43c94 René Kilczan <rene.kilczan@rewe-digital.com> 1547650344 +0100	reset: moving to HEAD
+314d22afa6ddaff3325892e11ad70fbf7bd43c94 cdbcee5cfd4a642b56c5f1b3e54c88965d5aa3f8 René Kilczan <rene.kilczan@rewe-digital.com> 1547650344 +0100	merge origin/master: Fast-forward
+cdbcee5cfd4a642b56c5f1b3e54c88965d5aa3f8 d631aeefab544dc6426a7b0ccb84cc32ed2cdd58 René Kilczan <rene.kilczan@rewe-digital.com> 1547735590 +0100	commit: Prepair publishing
+d631aeefab544dc6426a7b0ccb84cc32ed2cdd58 5d4921d225844b0c6ad2a6db8e8e487be6a796a9 René Kilczan <rene.kilczan@rewe-digital.com> 1547793329 +0100	commit: Update dependency
+5d4921d225844b0c6ad2a6db8e8e487be6a796a9 0122b71622866bc845834c1962330dd3d792ab90 René Kilczan <rene.kilczan@rewe-digital.com> 1547797487 +0100	commit: Add documentation
+0122b71622866bc845834c1962330dd3d792ab90 7c732ec4efdba29804f79eb0494ecd3071687274 René Kilczan <rene.kilczan@rewe-digital.com> 1547815413 +0100	commit: Update readme
+7c732ec4efdba29804f79eb0494ecd3071687274 3c238a263e385e66932e3df860f9d17e210d9d4f René Kilczan <rene.kilczan@rewe-digital.com> 1548059182 +0100	commit: Cleanup build files and set version number to 1.0-rc1
+3c238a263e385e66932e3df860f9d17e210d9d4f c55c50aa079aaad4a1826fed101ea0d04e855908 René Kilczan <rene.kilczan@rewe-digital.com> 1548145107 +0100	merge origin/master: Fast-forward
+c55c50aa079aaad4a1826fed101ea0d04e855908 1c57ec086c2f9a1401e06a86f9e776e71e04d450 René Kilczan <rene.kilczan@rewe-digital.com> 1548228620 +0100	commit: Change group ids as requested by the open source guild
+1c57ec086c2f9a1401e06a86f9e776e71e04d450 a1842105eee40c7e325bb93105a8c5a7cbab1b70 René Kilczan <rene.kilczan@rewe-digital.com> 1548228633 +0100	merge origin/master: Merge made by the 'recursive' strategy.
+a1842105eee40c7e325bb93105a8c5a7cbab1b70 c40d03735d52076dafce36463584f66db07d7581 René Kilczan <rene.kilczan@rewe-digital.com> 1548228780 +0100	commit: Fix api change
+c40d03735d52076dafce36463584f66db07d7581 1ac0d4116214a565acbed92250ef3e29c33d6e4f René Kilczan <rene.kilczan@rewe-digital.com> 1548234480 +0100	commit: Make the dependency transitive
+1ac0d4116214a565acbed92250ef3e29c33d6e4f 9cbb6464b888a608803507a3f13ed0ff49d324f2 René Kilczan <rene.kilczan@rewe-digital.com> 1548235028 +0100	commit: Make the dependency transitive and optimize artifact name
+9cbb6464b888a608803507a3f13ed0ff49d324f2 4bb7a5cd63dfe9d4baff151a04e2ceb95d77dca1 René Kilczan <rene.kilczan@rewe-digital.com> 1548243887 +0100	commit: Change another time the group id
+4bb7a5cd63dfe9d4baff151a04e2ceb95d77dca1 a5fc4e507d39f8cadf38f66bb3dd97ace618461c René Kilczan <rene.kilczan@rewe-digital.com> 1548247847 +0100	merge origin/master: Fast-forward
