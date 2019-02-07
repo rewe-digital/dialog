@@ -1,0 +1,5 @@
+[core](../../../index.md) / [org.rewedigital.dialog.model.google](../../index.md) / [Input](../index.md) / [Argument](index.md) / [&lt;init&gt;](./-init-.md)
+
+# &lt;init&gt;
+
+`Argument(name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, rawText: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, textValue: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, intValue: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, floatValue: `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`? = null, boolValue: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`? = null, extension: `[`Extension`](-extension/index.md)`? = null)`

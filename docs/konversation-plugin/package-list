@@ -1,0 +1,12 @@
+$dokka.format:gfm
+$dokka.linkExtension:md
+$dokka.location:org.rewedigital.dialog.utils$loadKonversation(org.rewedigital.dialog.handler.DialogflowHandler, kotlin.String)org.rewedigital.dialog.utils/org.rewedigital.dialog.handler.-dialogflow-handler/load-konversation.md
+$dokka.location:org.rewedigital.dialog.utils$withGoogleReprompts(org.rewedigital.dialog.handler.DialogflowResponseBuilder, org.rewedigital.konversation.Konversation)org.rewedigital.dialog.utils/org.rewedigital.dialog.handler.-dialogflow-response-builder/with-google-reprompts.md
+$dokka.location:org.rewedigital.dialog.utils$withGoogleReprompts(org.rewedigital.dialog.handler.DialogflowResponseBuilder, org.rewedigital.konversation.Output)org.rewedigital.dialog.utils/org.rewedigital.dialog.handler.-dialogflow-response-builder/with-google-reprompts.md
+$dokka.location:org.rewedigital.dialog.utils$withGoogleSimpleResponse(org.rewedigital.dialog.handler.DialogflowResponseBuilder, org.rewedigital.konversation.Konversation)org.rewedigital.dialog.utils/org.rewedigital.dialog.handler.-dialogflow-response-builder/with-google-simple-response.md
+$dokka.location:org.rewedigital.dialog.utils$withGoogleSimpleResponse(org.rewedigital.dialog.handler.DialogflowResponseBuilder, org.rewedigital.konversation.Output)org.rewedigital.dialog.utils/org.rewedigital.dialog.handler.-dialogflow-response-builder/with-google-simple-response.md
+$dokka.location:org.rewedigital.dialog.utils$withGoogleSuggestions(org.rewedigital.dialog.handler.DialogflowResponseBuilder, org.rewedigital.konversation.Konversation)org.rewedigital.dialog.utils/org.rewedigital.dialog.handler.-dialogflow-response-builder/with-google-suggestions.md
+$dokka.location:org.rewedigital.dialog.utils$withGoogleSuggestions(org.rewedigital.dialog.handler.DialogflowResponseBuilder, org.rewedigital.konversation.Output)org.rewedigital.dialog.utils/org.rewedigital.dialog.handler.-dialogflow-response-builder/with-google-suggestions.md
+$dokka.location:org.rewedigital.dialog.utils$withSimpleResponse(org.rewedigital.dialog.model.google.RichResponse, org.rewedigital.konversation.Konversation)org.rewedigital.dialog.utils/org.rewedigital.dialog.model.google.-rich-response/with-simple-response.md
+$dokka.location:org.rewedigital.dialog.utils$withSimpleResponse(org.rewedigital.dialog.model.google.RichResponse, org.rewedigital.konversation.Output)org.rewedigital.dialog.utils/org.rewedigital.dialog.model.google.-rich-response/with-simple-response.md
+org.rewedigital.dialog.utils

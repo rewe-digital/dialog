@@ -1,0 +1,5 @@
+[core](../../index.md) / [org.rewedigital.dialog.model.google](../index.md) / [RichResponse](index.md) / [&lt;init&gt;](./-init-.md)
+
+# &lt;init&gt;
+
+`RichResponse(items: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`ResponseHolder`](../-response-holder.md)`> = mutableListOf(), suggestions: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`Suggestion`](../../org.rewedigital.dialog.model.dialogflow/-suggestion/index.md)`> = mutableListOf(), linkOutSuggestion: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`LinkOutSuggestion`](../../org.rewedigital.dialog.model.dialogflow/-link-out-suggestion/index.md)`> = mutableListOf())`

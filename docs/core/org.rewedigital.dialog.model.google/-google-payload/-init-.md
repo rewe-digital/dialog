@@ -1,0 +1,5 @@
+[core](../../index.md) / [org.rewedigital.dialog.model.google](../index.md) / [GooglePayload](index.md) / [&lt;init&gt;](./-init-.md)
+
+# &lt;init&gt;
+
+`GooglePayload(isSsml: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)` = false, expectUserResponse: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)` = false, text: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, permissionsRequest: `[`PermissionsRequest`](../-permissions-request/index.md)`? = null, systemIntent: `[`SystemIntent`](../-system-intent/index.md)`? = null, richResponse: `[`RichResponse`](../-rich-response/index.md)`? = null, userStorage: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, noInputPrompts: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`GoogleSimpleResponse`](../-google-simple-response/index.md)`> = mutableListOf())`

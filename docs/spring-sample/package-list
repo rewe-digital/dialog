@@ -1,0 +1,6 @@
+$dokka.format:gfm
+$dokka.linkExtension:md
+
+org.rewedigital.dialog.springsample
+org.rewedigital.dialog.springsample.intenthandler
+org.rewedigital.dialog.springsample.interceptors

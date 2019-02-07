@@ -1,0 +1,5 @@
+$dokka.format:gfm
+$dokka.linkExtension:md
+$dokka.location:org.rewedigital.dialog.utils$withGoogleSimpleResponse(org.rewedigital.dialog.handler.DialogflowResponseBuilder, org.rewedigital.dialog.ssml.SsmlBuilder)org.rewedigital.dialog.utils/org.rewedigital.dialog.handler.-dialogflow-response-builder/with-google-simple-response.md
+$dokka.location:org.rewedigital.dialog.utils$withSimpleResponse(org.rewedigital.dialog.model.google.RichResponse, org.rewedigital.dialog.ssml.SsmlBuilder)org.rewedigital.dialog.utils/org.rewedigital.dialog.model.google.-rich-response/with-simple-response.md
+org.rewedigital.dialog.utils

@@ -1,0 +1,5 @@
+[core](../../index.md) / [org.rewedigital.dialog.model.dialogflow](../index.md) / [WebhookResponse](index.md) / [&lt;init&gt;](./-init-.md)
+
+# &lt;init&gt;
+
+`WebhookResponse(fulfillmentText: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, fulfillmentMessages: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`Messages`](../-messages/index.md)`> = mutableListOf(), source: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, payload: `[`Payload`](../-payload/index.md)`? = null, outputContexts: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`OutputContext`](../-output-context/index.md)`> = mutableListOf(), followupEventInput: `[`FollowupEventInput`](../-followup-event-input/index.md)`? = null)`

@@ -1,0 +1,5 @@
+[core](../../index.md) / [org.rewedigital.dialog.model.google](../index.md) / [RichResponse](index.md) / [withTableCard](./with-table-card.md)
+
+# withTableCard
+
+`fun withTableCard(title: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, subtitle: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, image: `[`Image`](../../org.rewedigital.dialog.model.dialogflow/-image/index.md)`? = null, columnProperties: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`ColumnProperties`](../../org.rewedigital.dialog.model.google.table/-column-properties/index.md)`> = mutableListOf(), rows: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`Row`](../../org.rewedigital.dialog.model.google.table/-row/index.md)`> = mutableListOf(), buttons: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`Button`](../../org.rewedigital.dialog.model.dialogflow/-button/index.md)`> = mutableListOf()): `[`RichResponse`](index.md)

@@ -1,0 +1,18 @@
+group 'org.rewedigital.voice'
+version rootProject.ext.versions.konversation_plugin
+
+apply plugin: 'kotlin'
+apply plugin: 'maven-publish'
+apply from: '../docu.gradle'
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation project(":core")
+    compile 'org.rewedigital.voice:konversation:0.1'
+}
+
+publishing.publications {
+    maven(MavenPublication) {
+        from components.java
+    }
+}

@@ -1,0 +1,346 @@
+POST http://localhost:8080/dialogflowIntent
+Content-Type: application/json;charset=UTF-8
+
+{
+  "id": "3cf0b4d3-ed2a-487d-afcf-2a528617b6dd",
+  "timestamp": "2018-12-03T08:45:31.655Z",
+  "lang": "de",
+  "result": {
+    "source": "agent",
+    "resolvedQuery": "hallo",
+    "speech": "",
+    "action": "HalloIntent",
+    "actionIncomplete": false,
+    "parameters": {
+      "time": "",
+      "category": "",
+      "unknown_category": ""
+    },
+    "contexts": [
+      {
+        "name": "hallo-followup",
+        "parameters": {
+          "time.original": "",
+          "time": "",
+          "category.original": "",
+          "category": "",
+          "unknown_category": "",
+          "unknown_category.original": ""
+        },
+        "lifespan": 2
+      }
+    ],
+    "metadata": {
+      "intentId": "f422781a-0b42-4682-9d50-7c060ce95241",
+      "webhookUsed": "true",
+      "webhookForSlotFillingUsed": "false",
+      "isFallbackIntent": "false",
+      "intentName": "HalloIntent"
+    },
+    "fulfillment": {
+      "speech": "",
+      "messages": [
+        {
+          "type": 0,
+          "speech": ""
+        }
+      ]
+    },
+    "score": 1
+  },
+  "status": {
+    "code": 200,
+    "errorType": "success"
+  },
+  "sessionId": "df1f2ce4-e214-4264-f95c-a953cb2de69a"
+}
+
+###
+POST http://localhost:8080/dialogflowIntent
+Content-Type: application/json;charset=UTF-8
+
+{
+  "responseId": "45fb8f23-288a-4348-9fff-311d8ea05e8f",
+  "queryResult": {
+    "queryText": "stop",
+    "action": "StopIntent",
+    "parameters": {},
+    "allRequiredParamsPresent": true,
+    "fulfillmentText": "Winke, Winke.",
+    "fulfillmentMessages": [
+      {
+        "platform": "ACTIONS_ON_GOOGLE",
+        "simpleResponses": {
+          "simpleResponses": [
+            {
+              "textToSpeech": "Winke, Winke."
+            }
+          ]
+        }
+      },
+      {
+        "platform": "ACTIONS_ON_GOOGLE",
+        "basicCard": {
+          "title": "asdf",
+          "subtitle": "asdf",
+          "formattedText": "asdf",
+          "image": {}
+        }
+      },
+      {
+        "platform": "ACTIONS_ON_GOOGLE",
+        "suggestions": {
+          "suggestions": [
+            {
+              "title": "click"
+            }
+          ]
+        }
+      },
+      {
+        "text": {
+          "text": [
+            "Winke, Winke."
+          ]
+        }
+      }
+    ],
+    "intent": {
+      "name": "projects/summercamp-assistant/agent/intents/3cdd3723-af52-4fa2-aa12-6cea599592f6",
+      "displayName": "Stop",
+      "endInteraction": true
+    },
+    "intentDetectionConfidence": 1,
+    "diagnosticInfo": {
+      "webhook_latency_ms": 10046,
+      "end_conversation": true
+    },
+    "languageCode": "de"
+  },
+  "webhookStatus": {
+    "code": 4,
+    "message": "Webhook call failed. Error: Request timeout."
+  }
+}
+
+###
+POST https://voice-kubernetes.service.int.rewe-big-data.com/dialogflowIntent
+Content-Type: application/json;charset=UTF-8
+
+{
+  "id": "66dad490-5a15-4c98-9dfd-74a206b91812",
+  "timestamp": "2018-06-22T12:23:19.478Z",
+  "lang": "de",
+  "result": {
+    "source": "agent",
+    "resolvedQuery": "Hallo",
+    "action": "WelcomeIntent",
+    "actionIncomplete": false,
+    "parameters": {},
+    "contexts": [
+      {
+        "name": "rewe-context",
+        "parameters": {
+          "PARAM_LAST_INTENT": "WelcomeIntent"
+        },
+        "lifespan": 2
+      }
+    ],
+    "metadata": {
+      "intentId": "e7ceca71-3e70-4194-991d-1af5796593d4",
+      "webhookUsed": "true",
+      "webhookForSlotFillingUsed": "false",
+      "webhookResponseTime": 278,
+      "intentName": "webhook.greetings"
+    },
+    "fulfillment": {
+      "speech": "<speak>.</speak>",
+      "source": "REWE",
+      "displayText": "",
+      "messages": [
+        {
+          "type": 0,
+          "speech": "."
+        }
+      ],
+      "data": {
+        "google": {
+          "expectUserResponse": true,
+          "noInputPrompts": [],
+          "richResponse": {
+            "items": [
+              {
+                "simpleResponse": {
+                  "textToSpeech": "<speak>Willkommen bei REWE. \n\nDu kannst mich nach Rezepten fragen oder dich über aktuelle REWE Angebote informieren - in jedem Fall werde ich dir etwas Passendes heraussuchen. Wenn du Inspiration benötigst, kann ich dir auch eine Rezeptempfehlung geben. \n\nMit ein wenig Geduld helfe ich dir demnächst auch beim Einkaufen oder der REWE Marktsuche. Solltest du mal nicht weiter kommen, frag einfach nach Hilfe. \n\nLos geht's, frage mich nach einem bestimmten Rezept, nach einer Empfehlung oder nach aktuellen Angeboten in den REWE Märkten.</speak>",
+                  "ssml": "<speak>Willkommen bei REWE. \n\nDu kannst mich nach Rezepten fragen oder dich über aktuelle REWE Angebote informieren - in jedem Fall werde ich dir etwas Passendes heraussuchen. Wenn du Inspiration benötigst, kann ich dir auch eine Rezeptempfehlung geben. \n\nMit ein wenig Geduld helfe ich dir demnächst auch beim Einkaufen oder der REWE Marktsuche. Solltest du mal nicht weiter kommen, frag einfach nach Hilfe. \n\nLos geht's, frage mich nach einem bestimmten Rezept, nach einer Empfehlung oder nach aktuellen Angeboten in den REWE Märkten.</speak>",
+                  "displayText": "Willkommen bei REWE. \n\nDu kannst mich nach Rezepten fragen oder dich über aktuelle REWE Angebote informieren - in jedem Fall werde ich dir etwas Passendes heraussuchen. Wenn du Inspiration benötigst, kann ich dir auch eine Rezeptempfehlung geben. \n\nMit ein wenig Geduld helfe ich dir demnächst auch beim Einkaufen oder der REWE Marktsuche. Solltest du mal nicht weiter kommen, frag einfach nach Hilfe. \n\nLos geht's, frage mich nach einem bestimmten Rezept, nach einer Empfehlung oder nach aktuellen Angeboten in den REWE Märkten."
+                }
+              }
+            ],
+            "suggestions": [
+              {
+                "title": "Rezeptempfehlung"
+              },
+              {
+                "title": "Angebote"
+              }
+            ]
+          },
+          "ssml": true
+        },
+        "AmazonTemplate": {
+          "backgroundImage": {
+            "contentDescription": "Hintergrund",
+            "url": "https://storage.googleapis.com/rewe-assistent-media/echo_show_splashscreen.jpg"
+          },
+          "token": "Welcome"
+        },
+        "AMAZON_HINT": {
+          "text": "gib mir ein Rezept für Lasagne"
+        }
+      }
+    },
+    "score": 1
+  },
+  "status": {
+    "code": 200,
+    "errorType": "success"
+  },
+  "sessionId": "0dc48431-f523-ce5d-86b2-b4ac1b444bda"
+}
+###
+POST http://localhost:8080/dialogflowIntent
+Content-Type: application/json;charset=UTF-8
+
+{
+    "responseId": "0913e6e1-34e2-48b6-8a7e-0d5aaf887541",
+    "queryResult": {
+        "queryText": "GOOGLE_ASSISTANT_WELCOME",
+        "action": "WelcomeIntent",
+        "parameters": {},
+        "allRequiredParamsPresent": true,
+        "fulfillmentText": "Ich bin Deine persönliche REWE Assistentin. Was darf ich für dich tun?",
+        "fulfillmentMessages": [
+            {
+                "text": {
+                    "text": [
+                        "Hallo, ich bin Caro, deine REWE Assistentin. Was kann ich für dich tun?"
+                    ]
+                },
+                "platform": "TELEGRAM"
+            },
+            {
+                "quickReplies": {
+                    "quickReplies": [
+                        "Rezeptempfehlung"
+                    ]
+                },
+                "platform": "TELEGRAM"
+            },
+            {
+                "platform": "ACTIONS_ON_GOOGLE",
+                "simpleResponses": {
+                    "simpleResponses": [
+                        {
+                            "textToSpeech": "Hallo, ich bin Deine REWE Assistentin. Wie kann ich dir weiterhelfen?"
+                        }
+                    ]
+                }
+            },
+            {
+                "platform": "ACTIONS_ON_GOOGLE",
+                "suggestions": {
+                    "suggestions": [
+                        {
+                            "title": "Rezeptempfehlung"
+                        }
+                    ]
+                }
+            },
+            {
+                "text": {
+                    "text": [
+                        "Hallo, ich bin Deine REWE Assistentin. Was kann ich für dich tun?"
+                    ]
+                }
+            }
+        ],
+        "outputContexts": [
+            {
+                "name": "projects/rewedigital-assistent-pre-v001/agent/sessions/ABwppHE0CjvrwJx3VhrTQS51IJGxCSObywmvKBr0ARwCBofextQkHBtd0-ymHsjli5pRo438pw_9jx0k8oku-aYWxdkiT4wUqrxFBCLe/contexts/google_assistant_welcome"
+            },
+            {
+                "name": "projects/rewedigital-assistent-pre-v001/agent/sessions/ABwppHE0CjvrwJx3VhrTQS51IJGxCSObywmvKBr0ARwCBofextQkHBtd0-ymHsjli5pRo438pw_9jx0k8oku-aYWxdkiT4wUqrxFBCLe/contexts/actions_capability_screen_output"
+            },
+            {
+                "name": "projects/rewedigital-assistent-pre-v001/agent/sessions/ABwppHE0CjvrwJx3VhrTQS51IJGxCSObywmvKBr0ARwCBofextQkHBtd0-ymHsjli5pRo438pw_9jx0k8oku-aYWxdkiT4wUqrxFBCLe/contexts/webhookgreetings-followup",
+                "lifespanCount": 2
+            },
+            {
+                "name": "projects/rewedigital-assistent-pre-v001/agent/sessions/ABwppHE0CjvrwJx3VhrTQS51IJGxCSObywmvKBr0ARwCBofextQkHBtd0-ymHsjli5pRo438pw_9jx0k8oku-aYWxdkiT4wUqrxFBCLe/contexts/actions_capability_audio_output"
+            },
+            {
+                "name": "projects/rewedigital-assistent-pre-v001/agent/sessions/ABwppHE0CjvrwJx3VhrTQS51IJGxCSObywmvKBr0ARwCBofextQkHBtd0-ymHsjli5pRo438pw_9jx0k8oku-aYWxdkiT4wUqrxFBCLe/contexts/google_assistant_input_type_keyboard"
+            },
+            {
+                "name": "projects/rewedigital-assistent-pre-v001/agent/sessions/ABwppHE0CjvrwJx3VhrTQS51IJGxCSObywmvKBr0ARwCBofextQkHBtd0-ymHsjli5pRo438pw_9jx0k8oku-aYWxdkiT4wUqrxFBCLe/contexts/actions_capability_web_browser"
+            },
+            {
+                "name": "projects/rewedigital-assistent-pre-v001/agent/sessions/ABwppHE0CjvrwJx3VhrTQS51IJGxCSObywmvKBr0ARwCBofextQkHBtd0-ymHsjli5pRo438pw_9jx0k8oku-aYWxdkiT4wUqrxFBCLe/contexts/actions_capability_media_response_audio"
+            }
+        ],
+        "intent": {
+            "name": "projects/rewedigital-assistent-pre-v001/agent/intents/e7ceca71-3e70-4194-991d-1af5796593d4",
+            "displayName": "webhook.greetings"
+        },
+        "intentDetectionConfidence": 1,
+        "languageCode": "de"
+    },
+    "originalDetectIntentRequest": {
+        "source": "google",
+        "version": "2",
+        "payload": {
+            "isInSandbox": true,
+            "surface": {
+                "capabilities": [
+                    {
+                        "name": "actions.capability.MEDIA_RESPONSE_AUDIO"
+                    },
+                    {
+                        "name": "actions.capability.WEB_BROWSER"
+                    },
+                    {
+                        "name": "actions.capability.AUDIO_OUTPUT"
+                    },
+                    {
+                        "name": "actions.capability.SCREEN_OUTPUT"
+                    }
+                ]
+            },
+            "requestType": "SIMULATOR",
+            "inputs": [
+                {
+                    "rawInputs": [
+                        {
+                            "query": "Mit REWE Demo sprechen",
+                            "inputType": "KEYBOARD"
+                        }
+                    ],
+                    "intent": "actions.intent.MAIN"
+                }
+            ],
+            "user": {
+                "lastSeen": "2018-12-17T09:27:42Z",
+                "locale": "de-DE",
+                "userId": "ABwppHHcsib6yqzIJ-9f1VIxpq7ISM-ERNjpAU-Ap9fO0BayQdTsJHdbGz_IPnz9vA-4OBEd8aVj3WrHlxk2ZXayAjnztv858a9DN9Ii"
+            },
+            "conversation": {
+                "conversationId": "ABwppHE0CjvrwJx3VhrTQS51IJGxCSObywmvKBr0ARwCBofextQkHBtd0-ymHsjli5pRo438pw_9jx0k8oku-aYWxdkiT4wUqrxFBCLe",
+                "type": "NEW"
+            }
+        }
+    },
+    "session": "projects/rewedigital-assistent-pre-v001/agent/sessions/ABwppHE0CjvrwJx3VhrTQS51IJGxCSObywmvKBr0ARwCBofextQkHBtd0-ymHsjli5pRo438pw_9jx0k8oku-aYWxdkiT4wUqrxFBCLe"
+}
+
+###

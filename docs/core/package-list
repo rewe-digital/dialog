@@ -1,0 +1,10 @@
+$dokka.format:gfm
+$dokka.linkExtension:md
+
+org.rewedigital.dialog.handler
+org.rewedigital.dialog.interceptors
+org.rewedigital.dialog.model.dialogflow
+org.rewedigital.dialog.model.google
+org.rewedigital.dialog.model.google.order
+org.rewedigital.dialog.model.google.table
+org.rewedigital.dialog.resolver

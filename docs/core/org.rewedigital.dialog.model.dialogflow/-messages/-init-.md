@@ -1,0 +1,5 @@
+[core](../../index.md) / [org.rewedigital.dialog.model.dialogflow](../index.md) / [Messages](index.md) / [&lt;init&gt;](./-init-.md)
+
+# &lt;init&gt;
+
+`Messages(platform: `[`Platform`](../-platform/index.md)`? = null, text: `[`TextMessage`](../-text-message/index.md)`? = null, image: `[`Image`](../-image/index.md)`? = null, quickReplies: `[`QuickReplies`](../-quick-replies/index.md)`? = null, card: `[`Card`](../-card/index.md)`? = null, simpleResponses: `[`GoogleSimpleResponses`](../../org.rewedigital.dialog.model.google/-google-simple-responses/index.md)`? = null, basicCard: `[`GoogleBasicCard`](../../org.rewedigital.dialog.model.google/-google-basic-card/index.md)`? = null, suggestions: `[`Suggestions`](../-suggestions/index.md)`? = null, linkOutSuggestion: `[`LinkOutSuggestion`](../-link-out-suggestion/index.md)`? = null, listSelect: `[`ListSelect`](../-list-select/index.md)`? = null, carouselSelect: `[`CarouselSelect`](../-carousel-select/index.md)`? = null)`

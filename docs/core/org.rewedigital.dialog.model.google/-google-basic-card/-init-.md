@@ -1,0 +1,5 @@
+[core](../../index.md) / [org.rewedigital.dialog.model.google](../index.md) / [GoogleBasicCard](index.md) / [&lt;init&gt;](./-init-.md)
+
+# &lt;init&gt;
+
+`GoogleBasicCard(title: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, subtitle: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, formattedText: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, image: `[`GoogleImage`](../-google-image/index.md)`? = null, buttons: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`GoogleButton`](../-google-button/index.md)`> = mutableListOf(), imageDisplayOptions: `[`ImageDisplayOptions`](../-image-display-options/index.md)`? = ImageDisplayOptions.CROPPED)`

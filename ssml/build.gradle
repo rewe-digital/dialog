@@ -1,0 +1,17 @@
+group 'org.rewedigital.voice'
+version rootProject.ext.versions.ssml
+
+apply plugin: 'kotlin'
+apply plugin: 'maven-publish'
+apply from: '../docu.gradle'
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+}
+
+publishing.publications {
+    maven(MavenPublication) {
+        artifactId = 'ssml-builder'
+        from components.java
+    }
+}

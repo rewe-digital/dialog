@@ -1,0 +1,5 @@
+[core](../../index.md) / [org.rewedigital.dialog.model.google.table](../index.md) / [TableCard](index.md) / [&lt;init&gt;](./-init-.md)
+
+# &lt;init&gt;
+
+`TableCard(title: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, subtitle: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, image: `[`Image`](../../org.rewedigital.dialog.model.dialogflow/-image/index.md)`? = null, columnProperties: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`ColumnProperties`](../-column-properties/index.md)`> = mutableListOf(), rows: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`Row`](../-row/index.md)`> = mutableListOf(), buttons: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`Button`](../../org.rewedigital.dialog.model.dialogflow/-button/index.md)`> = mutableListOf())`

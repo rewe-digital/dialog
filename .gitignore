@@ -1,0 +1,15 @@
+# IntelliJ project files
+.idea
+!.idea/inspectionProfiles/*
+!.idea/codeStyles/*
+!.idea/kotlinc.xml
+.gradle
+out
+local.properties
+build
+
+# Eclipse project files
+.classpath
+.settings
+.project
+*.iml

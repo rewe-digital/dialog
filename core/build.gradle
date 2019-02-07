@@ -1,0 +1,32 @@
+group 'org.rewedigital.voice'
+version rootProject.ext.versions.core
+
+apply plugin: 'kotlin'
+apply plugin: 'maven-publish'
+apply from: '../docu.gradle'
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+}
+
+publishing.publications {
+    maven(MavenPublication) {
+        artifactId = 'dialog'
+        from components.java
+    }
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    archiveClassifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    archiveClassifier = 'javadoc'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
