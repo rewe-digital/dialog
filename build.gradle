@@ -1,29 +1,24 @@
 apply plugin: 'kotlin'
 apply plugin: 'com.github.ben-manes.versions'
 
-ext {
-    dokka_version = '0.9.17'
-    versions = [:]
-    versions.kotlin = '1.3.11'
-    versions.core = '1.0'
-    versions.ssml = '1.0'
-    versions.ssml_plugin = '1.0'
-    versions.spring_plugin = '1.0'
-    versions.konversation_plugin = '1.0'
-}
-
 buildscript {
-    ext.kotlin_version = '1.3.20'
-    ext.dokka_version = '0.9.17'
+    ext.versions = [:]
+    ext.versions.kotlin = '1.3.21'
+    ext.versions.dokka = '0.9.17'
+    ext.versions.core = '1.0'
+    ext.versions.ssml = '1.0'
+    ext.versions.ssml_plugin = '1.0'
+    ext.versions.spring_plugin = '1.0'
+    ext.versions.konversation_plugin = '1.0'
 
     repositories {
         mavenLocal()
         jcenter()
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.20.0'
-        classpath "org.jetbrains.dokka:dokka-gradle-plugin:${dokka_version}"
+        classpath "org.jetbrains.dokka:dokka-gradle-plugin:${versions.dokka}"
     }
 }
 

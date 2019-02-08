@@ -6,14 +6,13 @@ version = '1.0.0-SNAPSHOT'
 buildscript {
     ext {
         springBootVersion = '2.1.2.RELEASE'
-        kotlin_version = '1.3.11'
     }
     repositories {
         jcenter()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlin_version}")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:${rootProject.ext.versions.kotlin}")
     }
 }
 
