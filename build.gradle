@@ -6,6 +6,7 @@ buildscript {
     ext.versions.kotlin = '1.3.21'
     ext.versions.dokka = '0.9.17'
     ext.versions.core = '1.0'
+    ext.versions.alexa = '0.1'
     ext.versions.ssml = '1.0'
     ext.versions.ssml_plugin = '1.0'
     ext.versions.spring_plugin = '1.0'

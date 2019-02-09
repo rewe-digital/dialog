@@ -1,0 +1,19 @@
+group 'org.rewedigital.voice.dialog'
+version rootProject.ext.versions.alexa
+
+apply plugin: 'kotlin'
+apply plugin: 'maven-publish'
+apply from: '../docu.gradle'
+
+dependencies {
+    implementation project(":core")
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "com.amazon.alexa:ask-sdk-core:2.11.2"
+}
+
+publishing.publications {
+    maven(MavenPublication) {
+        artifactId = 'alexa-plugin'
+        from components.java
+    }
+}
