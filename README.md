@@ -1,4 +1,4 @@
-# Dialog [![Build Status][travis-image]][travis-url] [![Code Coverage][codecov-img]][codecov-url] [![License: MIT][mit-image]][mit-url] [![Stars][star-img]][star-url]
+# Dialog [![Build Status][travis-image]][travis-url] [![Download at Bintray][bintray-image]][bintray-url] [![License: MIT][mit-image]][mit-url] [![Stars][star-img]][star-url]
 
 Dialog is a Dialogflow v2 API implementation written in Kotlin. With some great optional extensions you can use to
 write your own voice application fast.
@@ -32,7 +32,7 @@ A response with a simple response and a basic card would look like this:
         .withGoogleSimpleResponse(question)
         .withGoogleSuggestions(*suggestions.orEmpty())
 
-<sup>Example taken from [UiElementsIntentHandler](spring-sample/src/main/kotlin/org/rewedigital/dialog/springsample/intenthandler/UiElementsIntentHandler.kt#L40-L54)</sub>
+<sup>Example taken from [UiElementsIntentHandler](spring-sample/src/main/kotlin/org/rewedigital/dialog/springsample/intenthandler/UiElementsIntentHandler.kt#L40-L55)</sub>
 
 Here is a list of some selected methods you can use to create the response of your voice application:
 - [`askGoogleForCoarseLocation(...)`](docs/core/org.rewedigital.dialog.handler/-dialogflow-response-builder/ask-google-for-coarse-location.md)
@@ -131,8 +131,8 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 
 [travis-image]: https://travis-ci.com/rewe-digital-incubator/dialog.svg?branch=master
 [travis-url]: https://travis-ci.com/rewe-digital-incubator/dialog
-[codecov-img]: http://codecov.io/github/rewe-digital-incubator/dialog/coverage.svg?branch=master
-[codecov-url]: http://codecov.io/github/rewe-digital-incubator/dialog?branch=master
+[bintray-image]: https://api.bintray.com/packages/rewe-digital/dialog/core/images/download.svg
+[bintray-url]: https://bintray.com/rewe-digital/dialog/core/_latestVersion
 [mit-image]: https://img.shields.io/badge/License-MIT-yellow.svg
 [mit-url]: https://opensource.org/licenses/MIT
 [star-img]: https://img.shields.io/github/stars/rewe-digital-incubator/dialog.svg?style=social&label=Star&maxAge=3600
