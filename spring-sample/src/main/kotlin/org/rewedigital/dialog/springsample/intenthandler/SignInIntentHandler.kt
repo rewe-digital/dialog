@@ -14,11 +14,9 @@ import java.util.*
 @IntentHandler
 class SignInIntentHandler : MultiPlatformIntentHandler {
 
-    override fun canHandle(input: HandlerInput): Boolean {
-        return input.matches(Predicates.intentName("input.sign_in"))
-    }
+    override fun canHandleAlexa(input: HandlerInput) = input.matches(Predicates.intentName("input.sign_in"))
 
-    override fun handle(input: HandlerInput): Optional<Response> {
+    override fun handleAlexa(input: HandlerInput): Optional<Response> {
         input.attributesManager.sessionAttributes["LAST_INTENT_HANDLER"] = this.javaClass.simpleName
         return input.responseBuilder
             .withSpeech(SsmlBuilder("Please link your Account.").asSsmlString())
@@ -26,9 +24,8 @@ class SignInIntentHandler : MultiPlatformIntentHandler {
             .build()
     }
 
-    override fun canHandleDialogflowIntent(handler: DialogflowHandler): Boolean {
-        return handler.action?.equals("input.sign_in") ?: false
-    }
+    override fun canHandleDialogflowIntent(handler: DialogflowHandler) =
+        handler.action?.equals("input.sign_in") ?: false
 
     override fun handleDialogflowIntent(handler: DialogflowHandler): DialogflowResponseBuilder {
         handler.setContextParam("default-context", "LAST_INTENT_HANDLER", this.javaClass.simpleName)

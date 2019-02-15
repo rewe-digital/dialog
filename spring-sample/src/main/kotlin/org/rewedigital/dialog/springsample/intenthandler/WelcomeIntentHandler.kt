@@ -17,11 +17,10 @@ import java.util.*
 @IntentHandler
 class WelcomeIntentHandler : MultiPlatformIntentHandler {
 
-    override fun canHandle(input: HandlerInput): Boolean {
-        return input.matches(Predicates.requestType(LaunchRequest::class.java))
-    }
+    override fun canHandleAlexa(input: HandlerInput) =
+        input.matches(Predicates.requestType(LaunchRequest::class.java))
 
-    override fun handle(input: HandlerInput): Optional<Response> {
+    override fun handleAlexa(input: HandlerInput): Optional<Response> {
         input.attributesManager.sessionAttributes["LAST_INTENT_HANDLER"] = this.javaClass.simpleName
 
         val ssmlBuilder = SsmlBuilder()
@@ -46,9 +45,8 @@ class WelcomeIntentHandler : MultiPlatformIntentHandler {
             .build()
     }
 
-    override fun canHandleDialogflowIntent(handler: DialogflowHandler): Boolean {
-        return handler.action?.equals("input.welcome") ?: false
-    }
+    override fun canHandleDialogflowIntent(handler: DialogflowHandler) =
+        handler.action?.equals("input.welcome") ?: false
 
     override fun handleDialogflowIntent(handler: DialogflowHandler): DialogflowResponseBuilder {
         handler.setContextParam("default-context", "LAST_INTENT_HANDLER", this.javaClass.simpleName)

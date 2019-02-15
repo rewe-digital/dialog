@@ -42,6 +42,8 @@ repositories {
 }
 
 dependencies {
+    def askSdkVersion = '2.11.2'
+
     implementation project(":core")
     implementation project(":ssml")
     implementation project(":ssml-plugin")
@@ -53,8 +55,14 @@ dependencies {
     implementation('com.fasterxml.jackson.module:jackson-module-kotlin')
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation "com.amazon.alexa:ask-sdk-core:2.11.2"
+    implementation("com.amazon.alexa:ask-sdk-core:$askSdkVersion")
+    implementation("com.amazon.alexa:ask-sdk-servlet-support:$askSdkVersion")
+    implementation("com.amazon.alexa:ask-sdk-apache-client:$askSdkVersion")
     testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+configurations {
+    all*.exclude module: 'spring-boot-starter-logging'
 }
 
 dokka {

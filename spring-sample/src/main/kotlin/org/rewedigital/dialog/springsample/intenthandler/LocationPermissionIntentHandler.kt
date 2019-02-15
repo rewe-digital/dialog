@@ -14,20 +14,17 @@ import java.util.*
 @IntentHandler
 class LocationPermissionIntentHandler : MultiPlatformIntentHandler {
 
-    override fun canHandle(input: HandlerInput): Boolean {
-        return input.matches(Predicates.intentName("input.location_permission"))
-    }
+    override fun canHandleAlexa(input: HandlerInput): Boolean =
+        input.matches(Predicates.intentName("input.location_permission"))
 
-    override fun handle(input: HandlerInput): Optional<Response> {
-        return input.responseBuilder
+    override fun handleAlexa(input: HandlerInput): Optional<Response> =
+        input.responseBuilder
             .withSpeech(SsmlBuilder("To use this feature we need your permission.").asSsmlString())
             .withAskForPermissionsConsentCard(listOf("read::alexa:device:all:address"))
             .build()
-    }
 
-    override fun canHandleDialogflowIntent(handler: DialogflowHandler): Boolean {
-        return handler.action?.equals("input.location_permission") ?: false
-    }
+    override fun canHandleDialogflowIntent(handler: DialogflowHandler) =
+        handler.action?.equals("input.location_permission") ?: false
 
     override fun handleDialogflowIntent(handler: DialogflowHandler): DialogflowResponseBuilder {
         handler.setContextParam("default-context", "LAST_INTENT_HANDLER", this.javaClass.simpleName)
