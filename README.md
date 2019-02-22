@@ -6,7 +6,7 @@ write your own voice application fast.
 ## Top features
 
 - Dialogflow V2 API reference implementation written in Kotlin
-- Interceper API for adding e.g. tracking
+- Intercepter API for adding e.g. tracking
 - Spring reference implementation
 - SSML builder for creating rich responses
 - Plugin for Konversation to distinct the dialogs from code
