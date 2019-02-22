@@ -50,6 +50,7 @@ dependencies {
     implementation project(":spring-plugin")
     implementation project(":konversation-plugin")
     implementation project(":alexa-plugin")
+    implementation project(":alexa-spring-plugin")
 
     implementation('org.springframework.boot:spring-boot-starter-web')
     implementation('com.fasterxml.jackson.module:jackson-module-kotlin')

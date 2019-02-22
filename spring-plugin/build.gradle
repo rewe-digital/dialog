@@ -19,7 +19,8 @@ apply from: '../docu.gradle'
 apply plugin: 'com.novoda.bintray-release'
 
 dependencies {
-    implementation "org.rewedigital.voice:dialog:${rootProject.ext.versions.core}"
+    implementation project(":core")
+    
     implementation "org.jetbrains.kotlin:kotlin-reflect"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation "org.springframework:spring-context:5.1.4.RELEASE"

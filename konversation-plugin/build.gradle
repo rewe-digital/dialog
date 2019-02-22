@@ -7,8 +7,9 @@ apply from: '../docu.gradle'
 apply plugin: 'com.novoda.bintray-release'
 
 dependencies {
+    implementation project(":core")
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    implementation "org.rewedigital.voice:dialog:${rootProject.ext.versions.core}"
     compile 'org.rewedigital.voice:konversation:1.0-rc1'
 }
 

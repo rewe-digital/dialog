@@ -1,4 +1,4 @@
-package org.rewedigital.dialog.springsample.alexa
+package org.rewedigital.dialog.alexa.spring
 
 import com.amazon.ask.dispatcher.request.interceptor.RequestInterceptor
 import com.amazon.ask.dispatcher.request.interceptor.ResponseInterceptor

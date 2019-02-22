@@ -3,6 +3,8 @@ package org.rewedigital.dialog.springsample.alexa
 import com.amazon.ask.Skill
 import com.amazon.ask.builder.CustomSkillBuilder
 import com.amazon.ask.services.ApacheHttpApiClient
+import org.rewedigital.dialog.alexa.spring.IntentHandlerConfig
+import org.rewedigital.dialog.alexa.spring.InterceptorConfig
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 

@@ -1,0 +1,34 @@
+group 'org.rewedigital.voice.dialog'
+version rootProject.ext.versions.alexa
+
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-spring'
+apply plugin: 'maven-publish'
+apply from: '../docu.gradle'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("org.jetbrains.kotlin:kotlin-allopen:${rootProject.ext.versions.kotlin}")
+    }
+}
+
+dependencies {
+    implementation project(":core")
+    implementation project(":alexa-plugin")
+    implementation project(":spring-plugin")
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "org.jetbrains.kotlin:kotlin-reflect"
+    implementation "org.springframework:spring-context:5.1.4.RELEASE"
+    implementation "com.amazon.alexa:ask-sdk-core:2.11.2"
+}
+
+publishing.publications {
+    maven(MavenPublication) {
+        artifactId = 'alexa-spring-plugin'
+        from components.java
+    }
+}
