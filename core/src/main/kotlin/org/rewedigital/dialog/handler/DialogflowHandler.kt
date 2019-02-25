@@ -126,6 +126,11 @@ class DialogflowHandler(private val webhookRequest: WebhookRequest) {
      */
     fun getArgument(key: String) = arguments[key]
 
+    fun isGoogleCrawler() = webhookRequest.originalDetectIntentRequest?.payload?.user?.profile
+        .let {
+            it?.givenName == "Google" && it.familyName == "Crawler"
+        }
+
     /**
      *  Checks if on the last request a permission was successfully granted.
      */
@@ -192,7 +197,7 @@ class DialogflowHandler(private val webhookRequest: WebhookRequest) {
         operator fun set(contextName: String, parameter: String, value: Any) {
             if (this[contextName] == null) {
                 this[contextName] =
-                        OutputContext(contextName, lifespanCount = 4, parameters = mutableMapOf(parameter to value))
+                    OutputContext(contextName, lifespanCount = 4, parameters = mutableMapOf(parameter to value))
             } else {
                 this[contextName]?.parameters?.set(parameter, value)
             }
