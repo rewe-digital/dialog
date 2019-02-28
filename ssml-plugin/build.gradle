@@ -12,7 +12,7 @@ apply plugin: 'com.novoda.bintray-release'
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation project(':core') //"org.rewedigital.voice:dialog:${rootProject.ext.versions.core}"
-    implementation project(':ssml-builder') //"org.rewedigital.voice:ssml-builder:${rootProject.ext.versions.ssml}"
+    implementation project(':ssml') //"org.rewedigital.voice:ssml-builder:${rootProject.ext.versions.ssml}"
 }
 
 dokka {
