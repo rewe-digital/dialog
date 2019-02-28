@@ -1,6 +1,7 @@
 import java.nio.file.Paths
 
 group 'org.rewedigital.voice.dialog'
+description 'This is the SSML-Builder plugin for Dialog to write voice applications fast.'
 version rootProject.ext.versions.ssml_plugin
 
 apply plugin: 'kotlin'
@@ -9,10 +10,9 @@ apply from: '../docu.gradle'
 apply plugin: 'com.novoda.bintray-release'
 
 dependencies {
-    implementation project(":core")
-    implementation project(":ssml")
-
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation project(':core') //"org.rewedigital.voice:dialog:${rootProject.ext.versions.core}"
+    implementation project(':ssml-builder') //"org.rewedigital.voice:ssml-builder:${rootProject.ext.versions.ssml}"
 }
 
 dokka {
@@ -27,71 +27,4 @@ task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
     outputDirectory = "$buildDir/javadoc"
 }
 
-task sourcesJar(type: Jar, dependsOn: classes) {
-    archiveClassifier = 'sources'
-    from sourceSets.main.allSource
-}
-
-task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
-    archiveClassifier = 'javadoc'
-    from "$buildDir/javadoc"
-}
-
-publishing.publications {
-    ssmlPlugin(MavenPublication) {
-        groupId = 'org.rewedigital.voice.dialog'
-        artifactId = 'ssml-plugin'
-        from components.java
-        version = "${rootProject.ext.versions.core}"
-        artifact sourcesJar {
-            archiveClassifier = 'sources'
-        }
-        artifact javadocJar {
-            archiveClassifier = 'javadoc'
-        }
-        pom {
-            name = 'dialog'
-            description = 'This is the SSML-Builder plugin for Dialog to write voice applications fast.'
-            url = 'https://github.com/rewe-digital-incubator/dialog'
-            licenses {
-                license {
-                    name = 'MIT License'
-                    url = 'https://opensource.org/licenses/MIT'
-                    distribution = 'repo'
-                }
-            }
-            developers {
-                // TODO use the MAINTAINERS file
-                developer {
-                    name = 'Volkmar Vogel'
-                    email = 'volkmar.vogel@rewe-digital.com'
-                }
-                developer {
-                    name = 'René Kilczan'
-                    email = 'rene.kilczan@rewe-digital.com'
-                }
-            }
-
-            scm {
-                connection = 'scm:git:git://github.com/rewe-digital-incubator/dialog.git'
-                developerConnection = 'scm:git:git://github.com/rewe-digital-incubator/dialog.git'
-                url = 'https://github.com/rewe-digital-incubator/dialog'
-            }
-        }
-    }
-}
-
-publish {
-    userOrg = 'rewe-digital'
-    groupId = 'org.rewedigital.voice.dialog'
-    artifactId = 'ssml-plugin'
-    repoName = 'dialog'
-    publishVersion = rootProject.ext.versions.core
-    desc = 'This is the SSML-Builder plugin for Dialog to write voice applications fast.'
-    website = 'https://github.com/rewe-digital-incubator/dialog'
-    licences = ['MIT']
-    bintrayUser = project.properties['bintray.user']
-    bintrayKey = project.properties['bintray.apikey']
-    dryRun = false
-    publications = ['ssmlPlugin']
-}
+apply from: '../publish.gradle'

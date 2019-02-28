@@ -78,6 +78,6 @@ publish {
     licences = ['MIT']
     bintrayUser = project.properties['bintray.user']
     bintrayKey = project.properties['bintray.apikey']
-    dryRun = false
+    dryRun = true
     publications = ['konversationPlugin']
 }
