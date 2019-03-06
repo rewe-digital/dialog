@@ -20,7 +20,8 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.20.0'
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:${versions.dokka}"
-        classpath 'com.novoda:bintray-release:0.9'
+        // Until https://github.com/novoda/bintray-release/pull/267 is merged we use the plugin from buildSrc
+        // classpath 'com.novoda:bintray-release:0.9'
     }
 }
 
