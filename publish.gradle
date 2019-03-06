@@ -2,7 +2,7 @@ apply plugin: 'com.novoda.bintray-release'
 
 // small hack to override the artifact ID via group name, if it is clean the project name will be used as artifactId
 def groupID, artifactID
-if(project.group.contains(":")) {
+if (project.group.contains(":")) {
     (groupID, artifactID) = project.group.split(":")
 } else {
     groupID = project.group
@@ -37,19 +37,20 @@ publish {
     publications = ['maven']
 }
 
-publishing.publications.all { publication ->
-    if (publication.name == 'maven') {
-        artifact(jar)
-        publication.artifacts.all { artifact ->
-            if (artifact.classifier == 'javadoc') {
-                artifact.builtBy javadocJar
-            }
-            if (artifact.classifier == 'sources') {
-                artifact.builtBy sourcesJar
-            }
+publishing.publications {
+    maven(MavenPublication) {
+        groupId = groupID
+        artifactId = artifactID
+        from components.java
+        version = project.version
+        artifact sourcesJar {
+            archiveClassifier = 'sources'
         }
-
-        publication.pom {
+        artifact javadocJar {
+            archiveClassifier = 'javadoc'
+        }
+        
+        pom {
             name = project.name
             description = project.description
             url = "https://rewe-digital-incubator.github.io/${rootProject.name}/${project.name}"
@@ -64,7 +65,7 @@ publishing.publications.all { publication ->
                 def maintainers = [:]
                 file("$rootDir/MAINTAINERS").text.eachLine { line ->
                     def (name, mail) = line.split('<')
-                    maintainers[name.trim()] = mail.replace('>','').trim()
+                    maintainers[name.trim()] = mail.replace('>', '').trim()
                 }
                 maintainers.entrySet().forEach { dev ->
                     developer {
@@ -73,7 +74,6 @@ publishing.publications.all { publication ->
                     }
                 }
             }
-
             scm {
                 connection = "scm:git:git://github.com/rewe-digital-incubator/${rootProject.name}.git"
                 developerConnection = "scm:git:git://github.com/rewe-digital-incubator/${rootProject.name}.git"
