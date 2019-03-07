@@ -1,7 +1,7 @@
 apply plugin: 'kotlin'
 apply from: '../docu.gradle'
 
-group 'org.rewedigital.voice'
+group 'org.rewedigital.voice.dialog'
 version rootProject.ext.versions.konversation_plugin
 description 'This is the Konversation plugin for Dialog to write voice applications fast.'
 
