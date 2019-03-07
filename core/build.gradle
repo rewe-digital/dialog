@@ -1,10 +1,13 @@
 apply plugin: 'kotlin'
-apply plugin: 'maven-publish'
 apply from: '../docu.gradle'
 
 group 'org.rewedigital.voice:dialog'
 version rootProject.ext.versions.core
 description 'Dialog is a Dialogflow v2 API implementation written in Kotlin. With some great optional extensions you can use to write your own voice applications fast.'
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+}
 
 task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
     outputFormat = 'javadoc'
@@ -12,7 +15,3 @@ task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
 }
 
 apply from: '../publish.gradle'
-
-dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-}

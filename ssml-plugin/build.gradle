@@ -5,9 +5,7 @@ description 'This is the SSML-Builder plugin for Dialog to write voice applicati
 version rootProject.ext.versions.ssml_plugin
 
 apply plugin: 'kotlin'
-apply plugin: 'maven-publish'
 apply from: '../docu.gradle'
-apply plugin: 'com.novoda.bintray-release'
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
