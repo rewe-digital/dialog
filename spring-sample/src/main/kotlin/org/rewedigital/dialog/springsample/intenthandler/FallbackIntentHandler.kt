@@ -1,18 +1,21 @@
 package org.rewedigital.dialog.springsample.intenthandler
 
+import com.amazon.ask.dispatcher.request.handler.HandlerInput
+import com.amazon.ask.model.Response
+import org.rewedigital.dialog.alexa.MultiPlatformIntentHandler
 import org.rewedigital.dialog.handler.DialogflowHandler
-import org.rewedigital.dialog.handler.DialogflowIntentHandler
-import org.rewedigital.dialog.handler.DialogflowResponseBuilder
 import org.rewedigital.dialog.spring.annotations.FallbackIntentHandler
+import java.util.*
 
 @FallbackIntentHandler
-class FallbackIntentHandler : DialogflowIntentHandler {
+class FallbackIntentHandler : MultiPlatformIntentHandler {
 
-    override fun canHandleDialogflowIntent(handler: DialogflowHandler): Boolean {
-        return false
-    }
+    override fun canHandleAlexa(input: HandlerInput) = false
 
-    override fun handleDialogflowIntent(handler: DialogflowHandler): DialogflowResponseBuilder {
-        return handler.responseBuilder.withText("Fallback!!!")
-    }
+    override fun handleAlexa(input: HandlerInput): Optional<Response> = Optional.empty()
+
+    override fun canHandleDialogflowIntent(handler: DialogflowHandler) = false
+
+    override fun handleDialogflowIntent(handler: DialogflowHandler) =
+        handler.responseBuilder.withText("Fallback!!!")
 }

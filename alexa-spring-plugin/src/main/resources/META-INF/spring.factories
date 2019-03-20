@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=org.rewedigital.dialog.alexa.spring.IntentHandlerConfig,org.rewedigital.dialog.alexa.spring.InterceptorConfig

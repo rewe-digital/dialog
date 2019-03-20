@@ -1,7 +1,5 @@
-import java.nio.file.Paths
-
-group = 'org.rewedigital.voice'
-version = '1.0.0-SNAPSHOT'
+group 'org.rewedigital.voice'
+version '1.0.0-SNAPSHOT'
 
 buildscript {
     ext {
@@ -21,7 +19,6 @@ apply plugin: 'kotlin-spring'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
-apply from: '../docu.gradle'
 
 sourceCompatibility = 1.8
 compileKotlin {
@@ -37,31 +34,27 @@ compileTestKotlin {
     }
 }
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
-    implementation('org.rewedigital.voice:dialog:1.0')
-    implementation('org.rewedigital.voice:ssml-builder:1.0')
-    implementation('org.rewedigital.voice.dialog:ssml-plugin:1.0')
-    implementation('org.rewedigital.voice.dialog:spring-plugin:1.0')
-    implementation('org.rewedigital.voice.dialog:konversation-plugin:1.0')
+    def askSdkVersion = '2.11.2'
+
+    implementation project(':core')
+    implementation project(':ssml')
+    implementation project(':ssml-plugin')
+    implementation project(':spring-plugin')
+    implementation project(':konversation-plugin')
+    implementation project(':alexa-plugin')
+    implementation project(':alexa-spring-plugin')
 
     implementation('org.springframework.boot:spring-boot-starter-web')
     implementation('com.fasterxml.jackson.module:jackson-module-kotlin')
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation('org.jetbrains.kotlin:kotlin-stdlib-jdk8')
+    implementation('org.jetbrains.kotlin:kotlin-reflect')
+    implementation("com.amazon.alexa:ask-sdk-core:$askSdkVersion")
+    implementation("com.amazon.alexa:ask-sdk-servlet-support:$askSdkVersion")
+    implementation("com.amazon.alexa:ask-sdk-apache-client:$askSdkVersion")
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 
-dokka {
-    externalDocumentationLink {
-        url = new URL("https://github.com/rewe-digital-incubator/${rootProject.name}/blob/master/docs/core/")
-        packageListUrl = Paths.get("$rootDir/docs/core/package-list").toUri().toURL()
-    }
-    externalDocumentationLink {
-        url = new URL("https://github.com/rewe-digital-incubator/${rootProject.name}/blob/master/docs/spring-plugin/")
-        packageListUrl = Paths.get("$rootDir/docs/spring-plugin/package-list").toUri().toURL()
-    }
+configurations {
+    all*.exclude module: 'spring-boot-starter-logging'
 }

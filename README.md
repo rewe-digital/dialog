@@ -6,6 +6,7 @@ write your own voice application fast.
 ## Top features
 
 - Dialogflow V2 API reference implementation written in Kotlin
+- Multiplatform support, one service for Alexa and Google Assistant
 - Intercepter API for adding e.g. tracking
 - Spring reference implementation
 - SSML builder for creating rich responses
@@ -109,6 +110,57 @@ the spring-sample project as template for your own project. When you use our plu
 `@IntentHandler` to make that intent handler to a component which provides you all the advantages of dependency
 injection. The best it that we use it also for discovering your intent handler automatically. For the fallback intent
 you should use the annotation `@FallbackIntentHandler`, if it is missing you service won't start up.
+
+## Adding Multiplatform Support
+
+You can add the Alexa plugin to build a service which can serve Alexa and the Google Assistant at once. You just have 
+to change your IntentHandler to implement the MultiplatformIntentHandler. 
+
+    class WelcomeIntentHandler : MultiPlatformIntentHandler {
+    
+        override fun canHandleAlexa(input: HandlerInput) =
+            input.matches(Predicates.requestType(LaunchRequest::class.java))
+    
+        override fun handleAlexa(input: HandlerInput): Optional<Response> {    
+            return input.responseBuilder
+                .withSpeech("Welcome to Dialog!")
+                .build()
+        }
+    
+        override fun canHandleDialogflowIntent(handler: DialogflowHandler): Boolean {
+            return handler.action?.equals("input.welcome") ?: false
+        }
+    
+        override fun handleDialogflowIntent(handler: DialogflowHandler): DialogflowResponseBuilder {
+            return handler.responseBuilder.withText("Welcome to Dialog!")
+        }
+    } 
+    
+If you're using Dialog with Spring you can add the `alexa-spring-plugin` which will automatically provide a Bean of
+`IntentHandlerHolder`. This call contains the list of all Alexa `RequestHandler` which can be added to the 
+`CustomSkillBuilder` like in the following example. 
+
+    @Configuration
+    class AlexaConfig {
+    
+        @Bean
+        fun provideSkill(
+            intentHandlerHolder: IntentHandlerConfig.IntentHandlerHolder,
+            interceptorHolder: InterceptorConfig.InterceptorHolder
+        ): Skill =
+            CustomSkillBuilder()
+                .addRequestHandlers(intentHandlerHolder.intentHandlers)
+                .apply {
+                    interceptorHolder.requestInterceptors.forEach {
+                        addRequestInterceptor(it)
+                    }
+                    interceptorHolder.responseInterceptors.forEach {
+                        addResponseInterceptor(it)
+                    }
+                }
+                .withApiClient(ApacheHttpApiClient.standard())
+                .build()
+    }
 
 ## License
 

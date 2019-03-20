@@ -1,10 +1,9 @@
 apply plugin: 'kotlin'
-apply plugin: 'maven-publish'
-apply plugin: 'com.novoda.bintray-release'
 apply from: '../docu.gradle'
 
-group "org.rewedigital.voice"
-version "${rootProject.ext.versions.core}"
+group 'org.rewedigital.voice:dialog'
+version rootProject.ext.versions.core
+description 'Dialog is a Dialogflow v2 API implementation written in Kotlin. With some great optional extensions you can use to write your own voice applications fast.'
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
@@ -15,71 +14,4 @@ task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
     outputDirectory = "$buildDir/javadoc"
 }
 
-task sourcesJar(type: Jar, dependsOn: classes) {
-    archiveClassifier = 'sources'
-    from sourceSets.main.allSource
-}
-
-task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
-    archiveClassifier = 'javadoc'
-    from "$buildDir/javadoc"
-}
-
-publishing.publications {
-    core(MavenPublication) {
-        groupId = "org.rewedigital.voice"
-        artifactId = "dialog"
-        version = "${rootProject.ext.versions.core}"
-        artifact sourcesJar {
-            archiveClassifier = 'sources'
-        }
-        artifact javadocJar {
-            archiveClassifier = 'javadoc'
-        }
-        from components.java
-        pom {
-            name = 'dialog'
-            description = 'Dialog is a Dialogflow v2 API implementation written in Kotlin. With some great optional extensions you can use to write your own voice application fast.'
-            url = 'https://github.com/rewe-digital-incubator/dialog'
-            licenses {
-                license {
-                    name = 'MIT License'
-                    url = 'https://opensource.org/licenses/MIT'
-                    distribution = 'repo'
-                }
-            }
-            developers {
-                // TODO use the MAINTAINERS file
-                developer {
-                    name = 'Volkmar Vogel'
-                    email = 'volkmar.vogel@rewe-digital.com'
-                }
-                developer {
-                    name = 'René Kilczan'
-                    email = 'rene.kilczan@rewe-digital.com'
-                }
-            }
-
-            scm {
-                connection = 'scm:git:git://github.com/rewe-digital-incubator/dialog.git'
-                developerConnection = 'scm:git:git://github.com/rewe-digital-incubator/dialog.git'
-                url = 'https://github.com/rewe-digital-incubator/dialog'
-            }
-        }
-    }
-}
-
-publish {
-    userOrg = 'rewe-digital'
-    groupId = 'org.rewedigital.voice'
-    artifactId = 'core'
-    repoName = 'dialog'
-    publishVersion = rootProject.ext.versions.core
-    desc = 'Dialog is a Dialogflow v2 API implementation written in Kotlin. With some great optional extensions you can use to write your own voice applications fast.'
-    website = 'https://github.com/rewe-digital-incubator/dialog'
-    licences = ['MIT']
-    bintrayUser = project.properties['bintray.user']
-    bintrayKey = project.properties['bintray.apikey']
-    dryRun = false
-    publications = ['core']
-}
+apply from: '../publish.gradle'

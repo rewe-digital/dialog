@@ -1,17 +1,30 @@
 package org.rewedigital.dialog.springsample.intenthandler
 
+import com.amazon.ask.dispatcher.request.handler.HandlerInput
+import com.amazon.ask.model.Response
+import com.amazon.ask.request.Predicates
+import org.rewedigital.dialog.alexa.MultiPlatformIntentHandler
 import org.rewedigital.dialog.handler.DialogflowHandler
-import org.rewedigital.dialog.handler.DialogflowIntentHandler
 import org.rewedigital.dialog.handler.DialogflowResponseBuilder
 import org.rewedigital.dialog.spring.annotations.IntentHandler
+import org.rewedigital.dialog.ssml.SsmlBuilder
+import java.util.*
 
 
 @IntentHandler
-class LocationPermissionIntentHandler : DialogflowIntentHandler {
+class LocationPermissionIntentHandler : MultiPlatformIntentHandler {
 
-    override fun canHandleDialogflowIntent(handler: DialogflowHandler): Boolean {
-        return handler.action?.equals("input.location_permission") ?: false
-    }
+    override fun canHandleAlexa(input: HandlerInput): Boolean =
+        input.matches(Predicates.intentName("input.location_permission"))
+
+    override fun handleAlexa(input: HandlerInput): Optional<Response> =
+        input.responseBuilder
+            .withSpeech(SsmlBuilder("To use this feature we need your permission.").asSsmlString())
+            .withAskForPermissionsConsentCard(listOf("read::alexa:device:all:address"))
+            .build()
+
+    override fun canHandleDialogflowIntent(handler: DialogflowHandler) =
+        handler.action?.equals("input.location_permission") ?: false
 
     override fun handleDialogflowIntent(handler: DialogflowHandler): DialogflowResponseBuilder {
         handler.setContextParam("default-context", "LAST_INTENT_HANDLER", this.javaClass.simpleName)

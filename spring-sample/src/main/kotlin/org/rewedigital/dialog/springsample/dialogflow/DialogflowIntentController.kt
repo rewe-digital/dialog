@@ -1,4 +1,4 @@
-package org.rewedigital.dialog.springsample
+package org.rewedigital.dialog.springsample.dialogflow
 
 import org.rewedigital.dialog.model.dialogflow.WebhookRequest
 import org.rewedigital.dialog.model.dialogflow.WebhookResponse
