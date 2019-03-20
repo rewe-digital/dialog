@@ -33,7 +33,7 @@ publish {
     desc = project.description
     bintrayUser = project.properties['bintray.user']
     bintrayKey = project.properties['bintray.apikey']
-    dryRun = true
+    dryRun = false
     publications = ['maven']
 }
 
