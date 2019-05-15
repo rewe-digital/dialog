@@ -7,8 +7,8 @@ buildscript {
     ext.versions.dokka = '0.9.18'
     ext.versions.core = '1.0.1'
     ext.versions.alexa = '1.0.1'
-    ext.versions.ssml = '1.0.1'
-    ext.versions.ssml_plugin = '1.0.1'
+    ext.versions.ssml = '1.0.2'
+    ext.versions.ssml_plugin = '1.0.2'
     ext.versions.spring_plugin = '1.0.1'
     ext.versions.konversation_plugin = '1.0.1'
 

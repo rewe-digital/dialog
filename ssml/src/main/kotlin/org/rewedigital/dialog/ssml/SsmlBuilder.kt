@@ -127,7 +127,7 @@ class SsmlBuilder(text: String = "") {
     /**
      * Returns the containing string without any SSML tags.
      */
-    fun asDisplayText() = stringBuilder.toString().removeXmlTags()
+    fun asDisplayText() = stringBuilder.toString().removeVoiceOnlyOutput().removeXmlTags()
 
     /**
      * Returns the containing string.
