@@ -38,7 +38,7 @@ dependencies {
     def askSdkVersion = '2.17.0'
 
     implementation project(':core')
-    implementation project(':ssml')
+    implementation project(':ssml-builder')
     implementation project(':ssml-plugin')
     implementation project(':spring-plugin')
     implementation project(':konversation-plugin')

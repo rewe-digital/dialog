@@ -10,7 +10,7 @@ apply from: '../docu.gradle'
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation project(':core')
-    implementation project(':ssml')
+    implementation project(':ssml-builder')
 }
 
 dokka {
