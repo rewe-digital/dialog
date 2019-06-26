@@ -31,6 +31,6 @@ class SignInResultIntentHandler : MultiPlatformIntentHandler {
 
         return handler.responseBuilder
             .expectUserResponse(false)
-            .withText(speech)
+            .withGoogleSimpleResponse(speech)
     }
 }

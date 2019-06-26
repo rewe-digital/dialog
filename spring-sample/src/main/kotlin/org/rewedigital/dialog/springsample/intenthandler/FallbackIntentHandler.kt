@@ -17,5 +17,5 @@ class FallbackIntentHandler : MultiPlatformIntentHandler {
     override fun canHandleDialogflowIntent(handler: DialogflowHandler) = false
 
     override fun handleDialogflowIntent(handler: DialogflowHandler) =
-        handler.responseBuilder.withText("Fallback!!!")
+        handler.responseBuilder.withGoogleSimpleResponse("Fallback!!!")
 }

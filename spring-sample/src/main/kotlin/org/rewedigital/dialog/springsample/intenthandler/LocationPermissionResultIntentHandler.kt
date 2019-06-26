@@ -38,7 +38,7 @@ class LocationPermissionResultIntentHandler : MultiPlatformIntentHandler {
 
         return handler
             .responseBuilder
-            .withText(speech)
+            .withGoogleSimpleResponse(speech)
             .expectUserResponse(false)
     }
 }
