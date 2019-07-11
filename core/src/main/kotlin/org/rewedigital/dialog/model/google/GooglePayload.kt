@@ -7,6 +7,6 @@ data class GooglePayload(
     var permissionsRequest: PermissionsRequest? = null,
     var systemIntent: SystemIntent? = null,
     var richResponse: RichResponse? = null,
-    var userStorage: String? = null,
+    override var userStorage: String? = null,
     var noInputPrompts: MutableList<GoogleSimpleResponse> = mutableListOf()
-)
+) : UserStorageHolder

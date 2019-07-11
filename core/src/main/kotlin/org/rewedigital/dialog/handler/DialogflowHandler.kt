@@ -1,14 +1,12 @@
 package org.rewedigital.dialog.handler
 
-import org.rewedigital.dialog.extensions.getSelectedOption
-import org.rewedigital.dialog.extensions.hasSurfaceCapability
-import org.rewedigital.dialog.extensions.permissionGranted
-import org.rewedigital.dialog.extensions.signInStatus
+import org.rewedigital.dialog.extensions.*
 import org.rewedigital.dialog.model.dialogflow.DialogflowParams
 import org.rewedigital.dialog.model.dialogflow.OutputContext
 import org.rewedigital.dialog.model.dialogflow.WebhookRequest
 import org.rewedigital.dialog.model.google.Conversation
 import org.rewedigital.dialog.model.google.SurfaceCapabilities
+import org.rewedigital.dialog.model.google.userData
 
 /**
  * Wrapper of [WebhookRequest] which provides utility functions  for easier context access and other parameters.
@@ -53,8 +51,7 @@ class DialogflowHandler(private val webhookRequest: WebhookRequest) {
      * An unique identifier of the users google account.
      */
     val userId: String?
-        get() = webhookRequest.originalDetectIntentRequest?.payload?.user?.userId
-            ?: webhookRequest.originalDetectIntentRequest?.payload?.user?.idToken
+        get() = webhookRequest.originalDetectIntentRequest?.payload?.user?.userData?.userId
 
     /**
      * The unique identifier of detectIntent request session.
