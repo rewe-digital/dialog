@@ -17,8 +17,8 @@ class DialogflowHandler(private val webhookRequest: WebhookRequest) {
     /**
      * Holds context related information.
      */
-    val context: DialogflowHandler.ContextWrapper =
-        DialogflowHandler.ContextWrapper(webhookRequest.queryResult?.outputContexts.orEmpty().map {
+    val context: ContextWrapper =
+        ContextWrapper(webhookRequest.queryResult?.outputContexts.orEmpty().map {
             // clone the list and remove the session prefix
             it.copy(name = it.name?.replace("${webhookRequest.session.orEmpty()}/contexts/", ""))
         }.toMutableList(), webhookRequest.session.orEmpty())
