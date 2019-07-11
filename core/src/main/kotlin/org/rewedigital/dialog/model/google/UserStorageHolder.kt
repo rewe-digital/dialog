@@ -62,7 +62,7 @@ class DataStorage(private val userData : UserStorageHolder) : LinkedHashMap<Stri
     val userId: String
         get() = getOrPut("userId") { UUID.randomUUID().toString() }
 
-    private fun asJson(): String? =
+    fun asJson(): String? =
         if (entries.size > 0)
             entries
                 .sortedBy { it.key } // order by key to make the output more deterministic

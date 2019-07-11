@@ -5,6 +5,7 @@ import org.rewedigital.dialog.model.dialogflow.DialogflowParams
 import org.rewedigital.dialog.model.dialogflow.OutputContext
 import org.rewedigital.dialog.model.dialogflow.WebhookRequest
 import org.rewedigital.dialog.model.google.Conversation
+import org.rewedigital.dialog.model.google.DataStorage
 import org.rewedigital.dialog.model.google.SurfaceCapabilities
 import org.rewedigital.dialog.model.google.userData
 
@@ -51,7 +52,15 @@ class DialogflowHandler(private val webhookRequest: WebhookRequest) {
      * An unique identifier of the users google account.
      */
     val userId: String?
-        get() = webhookRequest.originalDetectIntentRequest?.payload?.user?.userData?.userId
+        get() = webhookRequest.originalDetectIntentRequest?.payload?.user?.userId
+            ?: webhookRequest.originalDetectIntentRequest?.payload?.user?.userData?.userId
+
+    /**
+     * The stored user data aka user storage.
+     * @see https://developers.google.com/actions/assistant/save-data#json
+     */
+    val userData: DataStorage?
+        get() = webhookRequest.originalDetectIntentRequest?.payload?.user?.userData
 
     /**
      * The unique identifier of detectIntent request session.

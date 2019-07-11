@@ -11,7 +11,7 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
     private val response = WebhookResponse()
 
     private fun WebhookResponse.getOrCreatePayload() =
-        payload ?: Payload(google = GooglePayload(richResponse = RichResponse())).also { newPayload ->
+        payload ?: Payload(google = GooglePayload(richResponse = RichResponse(), userStorage = dialogflowHandler.userData?.asJson())).also { newPayload ->
             payload = newPayload
         }
 
