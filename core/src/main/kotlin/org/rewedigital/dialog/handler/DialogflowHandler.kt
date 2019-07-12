@@ -1,13 +1,15 @@
 package org.rewedigital.dialog.handler
 
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import org.rewedigital.dialog.extensions.*
 import org.rewedigital.dialog.model.dialogflow.DialogflowParams
 import org.rewedigital.dialog.model.dialogflow.OutputContext
 import org.rewedigital.dialog.model.dialogflow.WebhookRequest
 import org.rewedigital.dialog.model.google.Conversation
-import org.rewedigital.dialog.model.google.DataStorage
 import org.rewedigital.dialog.model.google.SurfaceCapabilities
-import org.rewedigital.dialog.model.google.userData
+import java.util.*
+import kotlin.collections.HashMap
 
 /**
  * Wrapper of [WebhookRequest] which provides utility functions  for easier context access and other parameters.
@@ -23,6 +25,16 @@ class DialogflowHandler(private val webhookRequest: WebhookRequest) {
             // clone the list and remove the session prefix
             it.copy(name = it.name?.replace("${webhookRequest.session.orEmpty()}/contexts/", ""))
         }.toMutableList(), webhookRequest.session.orEmpty())
+
+    /**
+     * The stored user data aka user storage.
+     * @see https://developers.google.com/actions/assistant/save-data#json
+     */
+    val userData: MutableMap<String, Any?> = run {
+        val userData = webhookRequest.originalDetectIntentRequest?.payload?.user?.userStorage
+            ?: return@run mutableMapOf<String, Any?>()
+        fromJson(userData).toMutableMap()
+    }
 
     /**
      * The action name defined in Dialogflow.
@@ -51,16 +63,22 @@ class DialogflowHandler(private val webhookRequest: WebhookRequest) {
     /**
      * An unique identifier of the users google account.
      */
-    val userId: String?
-        get() = webhookRequest.originalDetectIntentRequest?.payload?.user?.userId
-            ?: webhookRequest.originalDetectIntentRequest?.payload?.user?.userData?.userId
-
-    /**
-     * The stored user data aka user storage.
-     * @see https://developers.google.com/actions/assistant/save-data#json
-     */
-    val userData: DataStorage?
-        get() = webhookRequest.originalDetectIntentRequest?.payload?.user?.userData
+    val userId: String
+        get() {
+            return if (userData.containsKey("userId")) {
+                userData["userId"] as String
+            } else {
+                val oldUserId = webhookRequest.originalDetectIntentRequest?.payload?.user?.userId
+                if (oldUserId.isNullOrEmpty()) {
+                    val newUserId = UUID.randomUUID().toString()
+                    userData["userId"] = newUserId
+                    newUserId
+                } else {
+                    userData["userId"] = oldUserId
+                    oldUserId
+                }
+            }
+        }
 
     /**
      * The unique identifier of detectIntent request session.
@@ -186,6 +204,26 @@ class DialogflowHandler(private val webhookRequest: WebhookRequest) {
      */
     fun setContextParam(name: String, key: String, value: Any) {
         context[name, key] = value
+    }
+
+    private fun fromJson(serializedValue: String?): Map<String, Any> {
+        if (serializedValue != null && serializedValue.isNotEmpty()) {
+            val gson = Gson()
+            try {
+                val map: Map<String, Any> = gson.fromJson(
+                    serializedValue,
+                    object : TypeToken<Map<String, Any>>() {}.type
+                )
+                // NOTE: The format of the opaque string is:
+                // keyValueData: {key:value; key:value; }
+                if (map["data"] != null) {
+                    return map["data"] as Map<String, Any>
+                }
+            } catch (e: Exception) {
+                println(e.message)
+            }
+        }
+        return HashMap()
     }
 
     class ContextWrapper(

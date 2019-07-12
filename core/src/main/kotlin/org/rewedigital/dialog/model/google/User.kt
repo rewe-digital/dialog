@@ -9,8 +9,8 @@ data class User(
     val permissions: List<Permissions>?,
     val locale: String?,
     val lastSeen: String?,
-    override var userStorage: String?
-) : UserStorageHolder {
+    var userStorage: String?
+) {
     data class Profile(
         val displayName: String?,
         val givenName: String?,

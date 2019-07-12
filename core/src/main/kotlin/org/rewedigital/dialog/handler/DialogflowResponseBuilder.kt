@@ -1,5 +1,6 @@
 package org.rewedigital.dialog.handler
 
+import com.google.gson.Gson
 import org.rewedigital.dialog.extensions.validate
 import org.rewedigital.dialog.factories.SystemIntentFactory
 import org.rewedigital.dialog.model.dialogflow.*
@@ -11,7 +12,11 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
     private val response = WebhookResponse()
 
     private fun WebhookResponse.getOrCreatePayload() =
-        payload ?: Payload(google = GooglePayload(richResponse = RichResponse(), userStorage = dialogflowHandler.userData?.asJson())).also { newPayload ->
+        payload ?: Payload(
+            google = GooglePayload(
+                richResponse = RichResponse()
+            )
+        ).also { newPayload ->
             payload = newPayload
         }
 
@@ -262,6 +267,16 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
             .apply {
                 source = "Webhook"
                 outputContexts = dialogflowHandler.getContextList().toMutableList()
+                getOrCreatePayload().google?.userStorage = run {
+                    val dataMap = HashMap<String, Any?>()
+                    dataMap["data"] = dialogflowHandler.userData
+                    Gson().toJson(dataMap)
+                }
+
+                // Remove RichResponse if there are no items in it
+                if (payload?.google?.richResponse?.items?.isEmpty() == true) {
+                    payload?.google?.richResponse = null
+                }
             }
             .validate()
 }
