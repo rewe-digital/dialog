@@ -16,7 +16,7 @@ cache:
     - $HOME/.gradle/wrapper/
 
 jdk:
-    - oraclejdk8
+    - openjdk10
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
