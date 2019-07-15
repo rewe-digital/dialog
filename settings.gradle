@@ -1,6 +1,6 @@
 rootProject.name = 'dialog'
 include 'core'
-include 'ssml'
+include 'ssml-builder'
 include 'ssml-plugin'
 include 'spring-sample'
 include 'spring-plugin'
