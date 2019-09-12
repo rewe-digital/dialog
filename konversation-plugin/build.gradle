@@ -9,7 +9,7 @@ dependencies {
     implementation project(":core")
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    compile 'org.rewedigital.voice:konversation:1.0-rc1'
+    compile 'org.rewedigital.voice:konversation:1.0.1'
 }
 
 task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
