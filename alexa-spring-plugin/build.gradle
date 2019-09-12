@@ -16,9 +16,9 @@ buildscript {
 }
 
 dependencies {
-    implementation project(':core')
-    implementation project(':alexa-plugin')
-    implementation project(':spring-plugin')
+    implementation project(path: ':core', configuration: 'default')
+    implementation project(path: ':alexa-plugin', configuration: 'default')
+    implementation project(path: ':spring-plugin', configuration: 'default')
 
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
     implementation 'org.jetbrains.kotlin:kotlin-reflect'

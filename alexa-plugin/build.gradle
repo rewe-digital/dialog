@@ -6,7 +6,7 @@ version rootProject.ext.versions.alexa
 description 'The Alexa plugin for Dialog to write voice applications for Dialogflow and Alexa.'
 
 dependencies {
-    implementation project(":core")
+    implementation project(path: ":core", configuration: 'default')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation "com.amazon.alexa:ask-sdk-core:2.21.0"
 }
