@@ -3,7 +3,7 @@ version '1.0.0-SNAPSHOT'
 
 buildscript {
     ext {
-        springBootVersion = '2.1.6.RELEASE'
+        springBootVersion = '2.1.8.RELEASE'
     }
     repositories {
         jcenter()
@@ -35,15 +35,15 @@ compileTestKotlin {
 }
 
 dependencies {
-    def askSdkVersion = '2.19.0'
+    def askSdkVersion = '2.21.0'
 
-    implementation project(':core')
-    implementation project(':ssml-builder')
-    implementation project(':ssml-plugin')
-    implementation project(':spring-plugin')
-    implementation project(':konversation-plugin')
-    implementation project(':alexa-plugin')
-    implementation project(':alexa-spring-plugin')
+    implementation project(path: ':core', configuration: 'default')
+    implementation project(path: ':ssml-builder', configuration: 'default')
+    implementation project(path: ':ssml-plugin', configuration: 'default')
+    implementation project(path: ':spring-plugin', configuration: 'default')
+    implementation project(path: ':konversation-plugin', configuration: 'default')
+    implementation project(path: ':alexa-plugin', configuration: 'default')
+    implementation project(path: ':alexa-spring-plugin', configuration: 'default')
 
     implementation('org.springframework.boot:spring-boot-starter-web')
     implementation('com.fasterxml.jackson.module:jackson-module-kotlin')

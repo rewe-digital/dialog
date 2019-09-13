@@ -16,14 +16,14 @@ buildscript {
 }
 
 dependencies {
-    implementation project(':core')
-    implementation project(':alexa-plugin')
-    implementation project(':spring-plugin')
+    implementation project(path: ':core', configuration: 'default')
+    implementation project(path: ':alexa-plugin', configuration: 'default')
+    implementation project(path: ':spring-plugin', configuration: 'default')
 
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
-    implementation 'org.springframework:spring-context:5.1.8.RELEASE'
-    implementation 'com.amazon.alexa:ask-sdk-core:2.19.0'
+    implementation 'org.springframework:spring-context:5.1.9.RELEASE'
+    implementation 'com.amazon.alexa:ask-sdk-core:2.21.0'
 }
 
 task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {

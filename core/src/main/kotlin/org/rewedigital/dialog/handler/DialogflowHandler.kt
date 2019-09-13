@@ -28,7 +28,7 @@ class DialogflowHandler(private val webhookRequest: WebhookRequest) {
 
     /**
      * The stored user data aka user storage.
-     * @see https://developers.google.com/actions/assistant/save-data#json
+     * @see <a href="https://developers.google.com/actions/assistant/save-data#json">Assistant documentation</a>
      */
     val userData: MutableMap<String, Any?> = run {
         val userData = webhookRequest.originalDetectIntentRequest?.payload?.user?.userStorage
@@ -96,6 +96,14 @@ class DialogflowHandler(private val webhookRequest: WebhookRequest) {
      */
     val accessToken: String?
         get() = webhookRequest.originalDetectIntentRequest?.payload?.user?.accessToken
+
+    /**
+     * True if the userVerificationStatus is VERIFIED
+     * False if the userVerificationStatus is GUEST or null
+     * @see <a href="https://developers.google.com/actions/assistant/save-data#determining_and_handling_user_verification_status">Assistant documentation</a>
+     */
+    val isUserVerified: Boolean
+        get() = webhookRequest.originalDetectIntentRequest?.payload?.user?.userVerificationStatus == "VERIFIED"
 
     /**
      *  Returns an [DialogflowResponseBuilder] which can be used to construct a complete webhook response
