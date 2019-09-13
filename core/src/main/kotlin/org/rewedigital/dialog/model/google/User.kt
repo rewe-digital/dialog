@@ -9,7 +9,8 @@ data class User(
     val permissions: List<Permissions>?,
     val locale: String?,
     val lastSeen: String?,
-    var userStorage: String?
+    var userStorage: String?,
+    val userVerificationStatus: String?
 ) {
     data class Profile(
         val displayName: String?,

@@ -16,11 +16,11 @@ version rootProject.ext.versions.spring_plugin
 description 'This is the Spring plugin from Dialog to write voice applications fast.'
 
 dependencies {
-    implementation project(':core')
+    implementation project(path: ':core', configuration: 'default')
 
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
-    implementation 'org.springframework:spring-context:5.1.8.RELEASE'
+    implementation 'org.springframework:spring-context:5.1.9.RELEASE'
 }
 
 dokka {
