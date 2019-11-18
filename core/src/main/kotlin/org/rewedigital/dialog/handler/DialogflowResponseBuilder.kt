@@ -198,12 +198,12 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
      * Helper function to ask the user to start the sign-in process. [DialogflowHandler.signInStatus] will return the
      * result of the sign-in process.
      */
-    fun askGoogleForSignIn() = apply {
+    fun askGoogleForSignIn(reason: String? = null) = apply {
         response.payload = Payload(
             GooglePayload(
                 text = "PLACEHOLDER",
                 expectUserResponse = true,
-                systemIntent = SystemIntentFactory.buildSignInIntent()
+                systemIntent = SystemIntentFactory.buildSignInIntent(reason)
             )
         )
     }

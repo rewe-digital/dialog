@@ -29,6 +29,6 @@ class SignInIntentHandler : MultiPlatformIntentHandler {
 
     override fun handleDialogflowIntent(handler: DialogflowHandler): DialogflowResponseBuilder {
         handler.setContextParam("default-context", "LAST_INTENT_HANDLER", this.javaClass.simpleName)
-        return handler.responseBuilder.askGoogleForSignIn()
+        return handler.responseBuilder.askGoogleForSignIn("To enable awesome features")
     }
 }

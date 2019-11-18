@@ -5,10 +5,13 @@ import org.rewedigital.dialog.model.google.*
 
 internal object SystemIntentFactory {
 
-    fun buildSignInIntent() =
+    fun buildSignInIntent(optContext: String? = null) =
         SystemIntent(
             intent = SystemIntents.SIGN_IN,
-            data = Data(inputValueDataType = InputValueDataTypes.SIGN_IN)
+            data = Data(
+                inputValueDataType = InputValueDataTypes.SIGN_IN,
+                optContext = optContext
+            )
         )
 
     fun buildPermissionIntent(optContext: String? = null, vararg permissions: Permissions) =
