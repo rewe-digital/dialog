@@ -279,4 +279,9 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
                 }
             }
             .validate()
+
+    companion object {
+        // Hidden feature for plugin development
+        fun getRequestOf(responseBuilder: DialogflowResponseBuilder) = responseBuilder.dialogflowHandler
+    }
 }
