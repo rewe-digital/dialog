@@ -71,3 +71,18 @@ fun ResponseBuilder.withReprompt(output: Output) = apply {
 
 fun HandlerInput.loadKonversation(name: String) =
     Konversation(name, Environment("amazon", requestEnvelope.request.locale))
+
+interface KonversationEnum {
+    val name: String
+}
+
+fun DialogflowResponseBuilder.withGoogleSimpleResponse(konversation: KonversationEnum) : DialogflowResponseBuilder = apply {
+    withGoogleSimpleResponse(Konversation(konversation.name, Environment("google", request.languageCode.orEmpty())).createOutput())
+}
+
+private val DialogflowResponseBuilder.request
+    get() =  DialogflowResponseBuilder.getRequestOf(this)
+
+fun ResponseBuilder.withSpeech(konversation: KonversationEnum) = apply {
+    withSpeech(Konversation(konversation.name, Environment("alexa", ""/*FIXME*/)).createOutput())
+}
