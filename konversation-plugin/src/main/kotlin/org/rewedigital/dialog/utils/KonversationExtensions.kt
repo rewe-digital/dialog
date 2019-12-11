@@ -76,6 +76,12 @@ interface KonversationEnum {
     val name: String
 }
 
+fun HandlerInput.loadKonversation(konversation: KonversationEnum) =
+    Konversation(konversation.name, Environment("amazon", requestEnvelope.request.locale))
+
+fun DialogflowHandler.loadKonversation(konversation: KonversationEnum) =
+    Konversation(konversation.name, Environment("google", languageCode.orEmpty()))
+
 fun DialogflowResponseBuilder.withGoogleSimpleResponse(konversation: KonversationEnum) : DialogflowResponseBuilder = apply {
     withGoogleSimpleResponse(Konversation(konversation.name, Environment("google", request.languageCode.orEmpty())).createOutput())
 }
