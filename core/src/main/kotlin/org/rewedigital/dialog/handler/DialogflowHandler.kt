@@ -12,15 +12,15 @@ import java.util.*
 import kotlin.collections.HashMap
 
 /**
- * Wrapper of [WebhookRequest] which provides utility functions  for easier context access and other parameters.
+ * Wrapper of [WebhookRequest] which provides utility functions for easier context access and other parameters.
  * And also provides instance of [DialogflowResponseBuilder].
  */
-class DialogflowHandler(private val webhookRequest: WebhookRequest) {
+open class DialogflowHandler(private val webhookRequest: WebhookRequest) {
 
     /**
      * Holds context related information.
      */
-    val context: ContextWrapper =
+    open val context: ContextWrapper =
         ContextWrapper(webhookRequest.queryResult?.outputContexts.orEmpty().map {
             // clone the list and remove the session prefix
             it.copy(name = it.name?.replace("${webhookRequest.session.orEmpty()}/contexts/", ""))
@@ -30,7 +30,7 @@ class DialogflowHandler(private val webhookRequest: WebhookRequest) {
      * The stored user data aka user storage.
      * @see <a href="https://developers.google.com/actions/assistant/save-data#json">Assistant documentation</a>
      */
-    val userData: MutableMap<String, Any?> = run {
+    open val userData: MutableMap<String, Any?> = run {
         val userData = webhookRequest.originalDetectIntentRequest?.payload?.user?.userStorage
             ?: return@run mutableMapOf<String, Any?>()
         fromJson(userData).toMutableMap()
@@ -39,43 +39,37 @@ class DialogflowHandler(private val webhookRequest: WebhookRequest) {
     /**
      * The action name defined in Dialogflow.
      */
-    val action
+    open val action
         get() = webhookRequest.queryResult?.action
 
     /**
      *  Returns the original request string from Dialogflow.
      */
-    val originalRequest
+    open val originalRequest
         get() = webhookRequest.queryResult?.queryText
 
     /**
      *  Indicates if the current session has type of [Conversation.Type.NEW]
      */
-    val isNewSession
+    open val isNewSession
         get() = webhookRequest.originalDetectIntentRequest?.payload?.conversation?.type == Conversation.Type.NEW
 
     /**
      * The intent name defined in Dialogflow.
      */
-    val intentName
+    open val intentName
         get() = webhookRequest.queryResult?.intent?.displayName
 
     /**
      * An unique identifier of the users google account.
      */
-    val userId: String
+    open val userId: String
         get() {
             return if (userData.containsKey("userId")) {
                 userData["userId"] as String
             } else {
-                val oldUserId = webhookRequest.originalDetectIntentRequest?.payload?.user?.userId
-                if (oldUserId.isNullOrEmpty()) {
-                    val newUserId = UUID.randomUUID().toString()
-                    userData["userId"] = newUserId
-                    newUserId
-                } else {
-                    userData["userId"] = oldUserId
-                    oldUserId
+                UUID.randomUUID().toString().also {
+                    userData["userId"] = it
                 }
             }
         }
@@ -86,7 +80,7 @@ class DialogflowHandler(private val webhookRequest: WebhookRequest) {
      * Format: projects/<Project ID>/agent/sessions/<Session ID>,
      * or projects/<Project ID>/agent/environments/<Environment ID>/users/<User ID>/sessions/<Session ID>.
      */
-    val sessionId: String?
+    open val sessionId: String?
         get() = webhookRequest.session
 
     /**
@@ -94,7 +88,7 @@ class DialogflowHandler(private val webhookRequest: WebhookRequest) {
      * Only available if Account Linking configuration is defined in the action package
      * and the user links their account.
      */
-    val accessToken: String?
+    open val accessToken: String?
         get() = webhookRequest.originalDetectIntentRequest?.payload?.user?.accessToken
 
     /**
@@ -102,56 +96,56 @@ class DialogflowHandler(private val webhookRequest: WebhookRequest) {
      * False if the userVerificationStatus is GUEST or null
      * @see <a href="https://developers.google.com/actions/assistant/save-data#determining_and_handling_user_verification_status">Assistant documentation</a>
      */
-    val isUserVerified: Boolean
+    open val isUserVerified: Boolean
         get() = webhookRequest.originalDetectIntentRequest?.payload?.user?.userVerificationStatus == "VERIFIED"
 
     /**
      *  Returns an [DialogflowResponseBuilder] which can be used to construct a complete webhook response
      *  containing speech and visual components.
      */
-    val responseBuilder
+    open val responseBuilder
         get() = DialogflowResponseBuilder(this)
 
     /**
      * The language that was triggered during intent detection.
      */
-    val languageCode
+    open val languageCode
         get() = webhookRequest.queryResult?.languageCode
 
     /**
      * Returns the fulfillmentText defined in Dialogflow if present.
      */
-    val fulfillmentText
+    open val fulfillmentText
         get() = webhookRequest.queryResult?.fulfillmentText
 
     /**
      * Return the fulfillmentMessages defined in Dialogflow if present.
      */
-    val fulfillmentMessages
+    open val fulfillmentMessages
         get() = webhookRequest.queryResult?.fulfillmentMessages
 
     /**
      * Returns the confidence score for the intent detection.
      */
-    val intentDetectionConfidence
+    open val intentDetectionConfidence
         get() = webhookRequest.queryResult?.intentDetectionConfidence
 
     /**
      * Returns the confidence score for the speech recognition.
      */
-    val speechRecognitionConfidence
+    open val speechRecognitionConfidence
         get() = webhookRequest.queryResult?.speechRecognitionConfidence
 
     /**
      * Returns the [org.rewedigital.dialog.model.google.Input.RawInput.InputType] of the user input.
      */
-    val inputType
+    open val inputType
         get() = webhookRequest.originalDetectIntentRequest?.payload?.inputs?.firstOrNull()?.rawInputs?.firstOrNull()?.inputType
 
     /**
      * The collection of extracted entities.
      */
-    val arguments: Map<String, Any> = webhookRequest.queryResult?.parameters.orEmpty()
+    open val arguments: Map<String, Any> = webhookRequest.queryResult?.parameters.orEmpty()
 
     /**
      * Returns the value for the key from [arguments].
@@ -206,7 +200,6 @@ class DialogflowHandler(private val webhookRequest: WebhookRequest) {
      */
     fun getContextList() = context.asList()
 
-
     /**
      * Set a context parameter.
      */
@@ -225,6 +218,7 @@ class DialogflowHandler(private val webhookRequest: WebhookRequest) {
                 // NOTE: The format of the opaque string is:
                 // keyValueData: {key:value; key:value; }
                 if (map["data"] != null) {
+                    @Suppress("UNCHECKED_CAST")
                     return map["data"] as Map<String, Any>
                 }
             } catch (e: Exception) {
@@ -265,4 +259,9 @@ class DialogflowHandler(private val webhookRequest: WebhookRequest) {
             this.context += context
         }
     }
+
+    /**
+     * Make the [DialogflowHandler] mutable for modifying requests.
+     */
+    fun toMutableDialogflowHandler() = MutableDialogflowHandler(this, webhookRequest)
 }
