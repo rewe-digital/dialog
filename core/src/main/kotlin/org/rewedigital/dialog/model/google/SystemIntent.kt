@@ -21,5 +21,14 @@ data class SystemIntent(
                     carouselSelect = GoogleCarouselSelect(items.toList())
                 )
             )
+
+        fun createListSelect(vararg items: GoogleListItem, title: String? = null) =
+            SystemIntent(
+                intent = SystemIntents.OPTION,
+                data = Data(
+                    `@type` = InputValueDataTypes.OPTION.type,
+                    listSelect = GoogleListSelect(items.toList(), title)
+                )
+            )
     }
 }

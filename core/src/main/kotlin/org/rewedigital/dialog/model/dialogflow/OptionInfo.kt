@@ -1,4 +1,4 @@
-package org.rewedigital.dialog.model.google
+package org.rewedigital.dialog.model.dialogflow
 
 data class OptionInfo(
     val key: String? = null,

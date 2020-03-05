@@ -12,13 +12,13 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
     private val response = WebhookResponse()
 
     private fun WebhookResponse.getOrCreatePayload() =
-        payload ?: Payload(
-            google = GooglePayload(
-                richResponse = RichResponse()
-            )
-        ).also { newPayload ->
-            payload = newPayload
-        }
+            payload ?: Payload(
+                    google = GooglePayload(
+                            richResponse = RichResponse()
+                                          )
+                              ).also { newPayload ->
+                payload = newPayload
+            }
 
     /**
      * Set the FulfillmentText for Dialogflow.
@@ -39,8 +39,8 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
      */
     fun withTextMessage(text: TextMessage, platform: Platform? = null) = apply {
         response
-            .fulfillmentMessages
-            .add(Messages(platform = platform, text = text))
+                .fulfillmentMessages
+                .add(Messages(platform = platform, text = text))
     }
 
     /**
@@ -48,8 +48,8 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
      */
     fun withTextMessage(vararg text: String, platform: Platform? = null) = apply {
         response
-            .fulfillmentMessages
-            .add(Messages(platform = platform, text = TextMessage(text.toMutableList())))
+                .fulfillmentMessages
+                .add(Messages(platform = platform, text = TextMessage(text.toMutableList())))
     }
 
     /**
@@ -57,8 +57,8 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
      */
     fun withImage(image: Image, platform: Platform? = null) = apply {
         response
-            .fulfillmentMessages
-            .add(Messages(platform = platform, image = image))
+                .fulfillmentMessages
+                .add(Messages(platform = platform, image = image))
     }
 
     /**
@@ -66,8 +66,8 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
      */
     fun withQuickReplies(quickReplies: QuickReplies, platform: Platform? = null) = apply {
         response
-            .fulfillmentMessages
-            .add(Messages(platform = platform, quickReplies = quickReplies))
+                .fulfillmentMessages
+                .add(Messages(platform = platform, quickReplies = quickReplies))
     }
 
     /**
@@ -75,8 +75,8 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
      */
     fun withCard(card: Card, platform: Platform? = null) = apply {
         response
-            .fulfillmentMessages
-            .add(Messages(platform = platform, card = card))
+                .fulfillmentMessages
+                .add(Messages(platform = platform, card = card))
     }
 
     /**
@@ -122,21 +122,21 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
      * Only one [GoogleBasicCard] per [RichResponse] is allowed.
      */
     fun withGoogleBasicCard(
-        title: String,
-        subtitle: String? = null,
-        formattedText: String? = null,
-        image: GoogleImage? = null,
-        buttons: MutableList<GoogleButton> = mutableListOf(),
-        imageDisplayOptions: ImageDisplayOptions? = ImageDisplayOptions.CROPPED
-    ) = apply {
+            title: String,
+            subtitle: String? = null,
+            formattedText: String? = null,
+            image: GoogleImage? = null,
+            buttons: MutableList<GoogleButton> = mutableListOf(),
+            imageDisplayOptions: ImageDisplayOptions? = ImageDisplayOptions.CROPPED
+                           ) = apply {
         val basicCard = GoogleBasicCard(
-            title = title,
-            subtitle = subtitle,
-            formattedText = formattedText,
-            image = image,
-            buttons = buttons,
-            imageDisplayOptions = imageDisplayOptions
-        )
+                title = title,
+                subtitle = subtitle,
+                formattedText = formattedText,
+                image = image,
+                buttons = buttons,
+                imageDisplayOptions = imageDisplayOptions
+                                       )
         response.getOrCreatePayload().google?.richResponse?.items?.add(BasicCardHolder(basicCard))
     }
 
@@ -163,12 +163,12 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
     }
 
     /**
-     * Adds a [ListSelect] for the [Platform.ACTIONS_ON_GOOGLE].
+     * Adds a [ListSelect].
      */
-    fun withGoogleListSelect(listSelect: ListSelect) = apply {
+    fun withListSelect(listSelect: ListSelect) = apply {
         response
-            .fulfillmentMessages
-            .add(Messages(platform = Platform.ACTIONS_ON_GOOGLE, listSelect = listSelect))
+                .fulfillmentMessages
+                .add(Messages(platform = Platform.ACTIONS_ON_GOOGLE, listSelect = listSelect))
     }
 
     /**
@@ -180,15 +180,25 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
     }
 
     /**
-     * Adds a list of repromts.
+     * Adds a [GoogleListSelect] with the given [GoogleListItem]. In addition there must be at least one
+     * [RichResponse] item.
+     * [GoogleListSelect] needs at least two [GoogleListItem].
      */
-    fun withGoogleReprompts(vararg repropmpts: String) = apply {
-        response.getOrCreatePayload()
-            .google?.noInputPrompts?.addAll(repropmpts.map { GoogleSimpleResponse(textToSpeech = it) })
+    fun withGoogleSelectionList(vararg items: GoogleListItem, title: String? = null) = apply {
+        response.getOrCreatePayload().google?.systemIntent =
+                SystemIntent.createListSelect(items = *items, title = title)
     }
 
     /**
-     * Adds a list of [GoogleSimpleResponse] as repromts.
+     * Adds a list of reprompts.
+     */
+    fun withGoogleReprompts(vararg repropmpts: String) = apply {
+        response.getOrCreatePayload()
+                .google?.noInputPrompts?.addAll(repropmpts.map { GoogleSimpleResponse(textToSpeech = it) })
+    }
+
+    /**
+     * Adds a list of [GoogleSimpleResponse] as reprompts.
      */
     fun withGoogleReprompts(vararg repropmpts: GoogleSimpleResponse) = apply {
         response.getOrCreatePayload().google?.noInputPrompts?.addAll(repropmpts)
@@ -200,12 +210,12 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
      */
     fun askGoogleForSignIn(reason: String? = null) = apply {
         response.payload = Payload(
-            GooglePayload(
-                text = "PLACEHOLDER",
-                expectUserResponse = true,
-                systemIntent = SystemIntentFactory.buildSignInIntent(reason)
-            )
-        )
+                GooglePayload(
+                        text = "PLACEHOLDER",
+                        expectUserResponse = true,
+                        systemIntent = SystemIntentFactory.buildSignInIntent(reason)
+                             )
+                                  )
     }
 
     /**
@@ -214,11 +224,11 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
      */
     fun askGoogleForPreciseLocation(reason: String) = apply {
         response.payload = Payload(
-            GooglePayload(
-                expectUserResponse = true,
-                systemIntent = SystemIntentFactory.buildPermissionIntent(reason, Permissions.DEVICE_PRECISE_LOCATION)
-            )
-        )
+                GooglePayload(
+                        expectUserResponse = true,
+                        systemIntent = SystemIntentFactory.buildPermissionIntent(reason, Permissions.DEVICE_PRECISE_LOCATION)
+                             )
+                                  )
     }
 
     /**
@@ -227,11 +237,11 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
      */
     fun askGoogleForCoarseLocation(reason: String) = apply {
         response.payload = Payload(
-            GooglePayload(
-                expectUserResponse = true,
-                systemIntent = SystemIntentFactory.buildPermissionIntent(reason, Permissions.DEVICE_COARSE_LOCATION)
-            )
-        )
+                GooglePayload(
+                        expectUserResponse = true,
+                        systemIntent = SystemIntentFactory.buildPermissionIntent(reason, Permissions.DEVICE_COARSE_LOCATION)
+                             )
+                                  )
     }
 
     /**
@@ -241,15 +251,15 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
      */
     fun askGoogleForLocation(reason: String) = apply {
         response.payload = Payload(
-            GooglePayload(
-                expectUserResponse = true,
-                systemIntent = SystemIntentFactory.buildPermissionIntent(
-                    reason,
-                    Permissions.DEVICE_COARSE_LOCATION,
-                    Permissions.DEVICE_PRECISE_LOCATION
-                )
-            )
-        )
+                GooglePayload(
+                        expectUserResponse = true,
+                        systemIntent = SystemIntentFactory.buildPermissionIntent(
+                                reason,
+                                Permissions.DEVICE_COARSE_LOCATION,
+                                Permissions.DEVICE_PRECISE_LOCATION
+                                                                                )
+                             )
+                                  )
     }
 
     /**
@@ -263,22 +273,22 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
      * Returns the [WebhookResponse] and [WebhookResponse.validate] the result.
      */
     fun build(): WebhookResponse =
-        response
-            .apply {
-                source = "Webhook"
-                outputContexts = dialogflowHandler.getContextList().toMutableList()
-                getOrCreatePayload().google?.userStorage = run {
-                    val dataMap = HashMap<String, Any?>()
-                    dataMap["data"] = dialogflowHandler.userData
-                    Gson().toJson(dataMap)
-                }
+            response
+                    .apply {
+                        source = "Webhook"
+                        outputContexts = dialogflowHandler.getContextList().toMutableList()
+                        getOrCreatePayload().google?.userStorage = run {
+                            val dataMap = HashMap<String, Any?>()
+                            dataMap["data"] = dialogflowHandler.userData
+                            Gson().toJson(dataMap)
+                        }
 
-                // Remove RichResponse if there are no items in it
-                if (payload?.google?.richResponse?.items?.isEmpty() == true) {
-                    payload?.google?.richResponse = null
-                }
-            }
-            .validate()
+                        // Remove RichResponse if there are no items in it
+                        if (payload?.google?.richResponse?.items?.isEmpty() == true) {
+                            payload?.google?.richResponse = null
+                        }
+                    }
+                    .validate()
 
     companion object {
         // Hidden feature for plugin development
