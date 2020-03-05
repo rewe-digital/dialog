@@ -10,7 +10,7 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     compile 'org.rewedigital.voice:konversation:1.0.1'
-    compileOnly "com.amazon.alexa:ask-sdk-core:2.27.1"
+    compileOnly "com.amazon.alexa:ask-sdk-core:2.27.2"
 }
 
 task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {

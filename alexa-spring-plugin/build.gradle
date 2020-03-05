@@ -22,8 +22,8 @@ dependencies {
 
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
-    implementation 'org.springframework:spring-context:5.1.9.RELEASE'
-    implementation 'com.amazon.alexa:ask-sdk-core:2.21.0'
+    implementation 'org.springframework:spring-context:5.2.4.RELEASE'
+    implementation 'com.amazon.alexa:ask-sdk-core:2.27.2'
 }
 
 task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {

@@ -8,7 +8,7 @@ description 'The Alexa plugin for Dialog to write voice applications for Dialogf
 dependencies {
     implementation project(path: ":core", configuration: 'default')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    implementation "com.amazon.alexa:ask-sdk-core:2.27.1"
+    implementation "com.amazon.alexa:ask-sdk-core:2.27.2"
 }
 
 dokka {
