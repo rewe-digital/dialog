@@ -163,9 +163,9 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
     }
 
     /**
-     * Adds a [ListSelect] for the [Platform.ACTIONS_ON_GOOGLE].
+     * Adds a [ListSelect].
      */
-    fun withGoogleListSelect(listSelect: ListSelect) = apply {
+    fun withListSelect(listSelect: ListSelect) = apply {
         response
             .fulfillmentMessages
             .add(Messages(platform = Platform.ACTIONS_ON_GOOGLE, listSelect = listSelect))
@@ -180,7 +180,17 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
     }
 
     /**
-     * Adds a list of repromts.
+     * Adds a [GoogleListSelect] with the given [GoogleListItem]. In addition there must be at least one
+     * [RichResponse] item.
+     * [GoogleListSelect] needs at least two [GoogleListItem].
+     */
+    fun withGoogleSelectionList(vararg items: GoogleListItem, title: String? = null) = apply {
+        response.getOrCreatePayload().google?.systemIntent =
+            SystemIntent.createListSelect(items = *items, title = title)
+    }
+
+    /**
+     * Adds a list of reprompts.
      */
     fun withGoogleReprompts(vararg repropmpts: String) = apply {
         response.getOrCreatePayload()
@@ -188,7 +198,7 @@ class DialogflowResponseBuilder(private val dialogflowHandler: DialogflowHandler
     }
 
     /**
-     * Adds a list of [GoogleSimpleResponse] as repromts.
+     * Adds a list of [GoogleSimpleResponse] as reprompts.
      */
     fun withGoogleReprompts(vararg repropmpts: GoogleSimpleResponse) = apply {
         response.getOrCreatePayload().google?.noInputPrompts?.addAll(repropmpts)

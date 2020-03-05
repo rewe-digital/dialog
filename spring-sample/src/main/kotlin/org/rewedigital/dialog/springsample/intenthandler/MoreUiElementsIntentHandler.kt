@@ -5,8 +5,8 @@ import com.amazon.ask.model.Response
 import org.rewedigital.dialog.alexa.MultiPlatformIntentHandler
 import org.rewedigital.dialog.handler.DialogflowHandler
 import org.rewedigital.dialog.handler.DialogflowResponseBuilder
+import org.rewedigital.dialog.model.dialogflow.OptionInfo
 import org.rewedigital.dialog.model.google.GoogleCarouselItem
-import org.rewedigital.dialog.model.google.OptionInfo
 import org.rewedigital.dialog.spring.annotations.IntentHandler
 import java.util.*
 

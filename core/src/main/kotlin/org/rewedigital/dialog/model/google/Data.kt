@@ -9,7 +9,8 @@ data class Data(
     var context: String? = null,
     var notificationTitle: String? = null,
     var capabilities: MutableList<String> = mutableListOf(),
-    val carouselSelect: GoogleCarouselSelect? = null
+    val carouselSelect: GoogleCarouselSelect? = null,
+    val listSelect: GoogleListSelect? = null
 ) {
     constructor(
         inputValueDataType: InputValueDataTypes? = null,
