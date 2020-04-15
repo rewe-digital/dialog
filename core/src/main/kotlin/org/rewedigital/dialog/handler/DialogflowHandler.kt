@@ -207,6 +207,11 @@ open class DialogflowHandler(private val webhookRequest: WebhookRequest) {
         context[name, key] = value
     }
 
+    /**
+     * Get Location, if present.
+     */
+    fun getUserLocation() = webhookRequest.originalDetectIntentRequest?.payload?.device?.location
+
     private fun fromJson(serializedValue: String?): Map<String, Any> {
         if (serializedValue != null && serializedValue.isNotEmpty()) {
             val gson = Gson()
