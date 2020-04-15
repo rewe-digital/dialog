@@ -17,20 +17,22 @@ class LoggingInterceptor(private val objectMapper: ObjectMapper) :
     MultiPlatformResponseInterceptor {
 
     override fun onAlexaRequest(input: HandlerInput) {
-        println(input.requestEnvelope.toString())
+        println(objectMapper.writeValueAsString(input.requestEnvelope).censorAccessTokens())
     }
 
     override fun onAlexaResponse(input: HandlerInput, response: Optional<Response>) {
         response.ifPresent {
-            println(it.toString())
+            println(objectMapper.writeValueAsString(it))
         }
     }
 
     override fun onDialogflowRequest(webhookRequest: WebhookRequest) {
-        println(objectMapper.writeValueAsString(webhookRequest))
+        println(objectMapper.writeValueAsString(webhookRequest).censorAccessTokens())
     }
 
     override fun onDialogflowResponse(webhookRequest: WebhookRequest, webhookResponse: WebhookResponse) {
         println(objectMapper.writeValueAsString(webhookResponse))
     }
+
+    private fun String.censorAccessTokens() = replace(""""(accessToken|apiAccessToken)"(\s*):(\s*)"[^"]*"""".toRegex(), """"$1"$2:$3"(REMOVED)"""")
 }
