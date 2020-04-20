@@ -50,6 +50,12 @@ open class DialogflowHandler(private val webhookRequest: WebhookRequest) {
         get() = webhookRequest.queryResult?.queryText
 
     /**
+     *  Returns the original detected intent request.
+     */
+    open val originalDetectIntentRequest
+        get() = webhookRequest.originalDetectIntentRequest
+
+    /**
      *  Indicates if the current session has type of [Conversation.Type.NEW]
      */
     open val isNewSession
