@@ -7,8 +7,10 @@ data class Input(
     val arguments: List<Argument>? = null
 ) {
 
-    data class RawInput(val inputType: InputType? = null) {
-
+    data class RawInput(
+        val inputType: InputType? = null,
+        val query: String? = null
+    ) {
         enum class InputType {
             UNSPECIFIED_INPUT_TYPE,
             TOUCH,

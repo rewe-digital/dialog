@@ -7,6 +7,7 @@ import org.rewedigital.dialog.model.dialogflow.DialogflowParams
 import org.rewedigital.dialog.model.dialogflow.OutputContext
 import org.rewedigital.dialog.model.dialogflow.WebhookRequest
 import org.rewedigital.dialog.model.google.Conversation
+import org.rewedigital.dialog.model.google.Device
 import org.rewedigital.dialog.model.google.SurfaceCapabilities
 import java.util.*
 import kotlin.collections.HashMap
@@ -47,6 +48,12 @@ open class DialogflowHandler(private val webhookRequest: WebhookRequest) {
      */
     open val originalRequest
         get() = webhookRequest.queryResult?.queryText
+
+    /**
+     *  Returns the original detected intent request.
+     */
+    open val originalDetectIntentRequest
+        get() = webhookRequest.originalDetectIntentRequest
 
     /**
      *  Indicates if the current session has type of [Conversation.Type.NEW]
@@ -210,7 +217,8 @@ open class DialogflowHandler(private val webhookRequest: WebhookRequest) {
     /**
      * Get Location, if present.
      */
-    fun getUserLocation() = webhookRequest.originalDetectIntentRequest?.payload?.device?.location
+    val userLocation: Device.Location?
+        get() = webhookRequest.originalDetectIntentRequest?.payload?.device?.location
 
     private fun fromJson(serializedValue: String?): Map<String, Any> {
         if (serializedValue != null && serializedValue.isNotEmpty()) {
